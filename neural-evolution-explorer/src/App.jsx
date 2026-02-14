@@ -118,6 +118,35 @@ function usePreloader(expId, currentGen, maxGen, cache) {
   }, [expId, currentGen, maxGen, cache]);
 }
 
+// Load PSTH mean_rate for all generations (for "all generations as gray" overlay)
+function useAllGenerationsPsth(expId, maxGen, enabled) {
+  const [allGenPsth, setAllGenPsth] = useState({ deepsim: [], biggan: [], time_ms: [], loading: false });
+  useEffect(() => {
+    if (!expId || !maxGen || !enabled) {
+      setAllGenPsth({ deepsim: [], biggan: [], time_ms: [], loading: false });
+      return;
+    }
+    setAllGenPsth((prev) => ({ ...prev, loading: true }));
+    const promises = [];
+    for (let g = 1; g <= maxGen; g++) {
+      const genDir = `${DATA_BASE}/${expId}/gen_${String(g).padStart(2, "0")}`;
+      promises.push(
+        Promise.all([
+          fetch(`${genDir}/deepsim_psth.json`).then((r) => r.json()).catch(() => null),
+          fetch(`${genDir}/biggan_psth.json`).then((r) => r.json()).catch(() => null),
+        ]).then(([ds, bg]) => ({ g, deepsim: ds?.mean_rate ?? null, biggan: bg?.mean_rate ?? null, time_ms: ds?.time_ms ?? bg?.time_ms ?? [] }))
+      );
+    }
+    Promise.all(promises).then((results) => {
+      const deepsim = results.map((r) => r.deepsim);
+      const biggan = results.map((r) => r.biggan);
+      const time_ms = results[0]?.time_ms ?? [];
+      setAllGenPsth({ deepsim, biggan, time_ms, loading: false });
+    }).catch(() => setAllGenPsth((prev) => ({ ...prev, loading: false })));
+  }, [expId, maxGen, enabled]);
+  return allGenPsth;
+}
+
 // =============================================================================
 // COMPONENTS
 // =============================================================================
@@ -181,19 +210,27 @@ function MethodImage({ src, rate, gen }) {
 }
 
 
-function PSTHChart({ psth, gen, label, color }) {
+function PSTHChart({ psth, gen, label, color, showIndividualTrials = true, allGenerationsMeanRates = null }) {
   if (!psth) return null;
 
   const chartData = psth.time_ms.map((t, i) => {
     const d = { time: t, mean: psth.mean_rate[i] };
-    const maxTrials = Math.min(psth.trial_rates.length, 20);
-    for (let ti = 0; ti < maxTrials; ti++) {
-      d[`t${ti}`] = psth.trial_rates[ti]?.[i] ?? 0;
+    if (showIndividualTrials && psth.trial_rates?.length) {
+      const maxTrials = Math.min(psth.trial_rates.length, 20);
+      for (let ti = 0; ti < maxTrials; ti++) {
+        d[`t${ti}`] = psth.trial_rates[ti]?.[i] ?? 0;
+      }
+    }
+    if (allGenerationsMeanRates?.length) {
+      allGenerationsMeanRates.forEach((rateArr, gi) => {
+        if (rateArr && rateArr[i] != null) d[`gen${gi}`] = rateArr[i];
+      });
     }
     return d;
   });
 
-  const numTrials = Math.min(psth.trial_rates.length, 20);
+  const numTrials = showIndividualTrials && psth.trial_rates?.length ? Math.min(psth.trial_rates.length, 20) : 0;
+  const numGenTraces = allGenerationsMeanRates?.length ?? 0;
 
   return (
     <div>
@@ -211,6 +248,10 @@ function PSTHChart({ psth, gen, label, color }) {
             stroke="#444" tick={{ fontSize: 10, fill: "#555" }}
             label={{ value: "PSTH (Hz)", angle: -90, position: "insideLeft", offset: 10, fontSize: 10, fill: "#555" }}
           />
+          {numGenTraces > 0 && Array.from({ length: numGenTraces }, (_, i) => (
+            <Line key={`gen${i}`} dataKey={`gen${i}`} stroke="#3a3d50" strokeWidth={0.8}
+              dot={false} isAnimationActive={false} />
+          ))}
           {Array.from({ length: numTrials }, (_, i) => (
             <Line key={`t${i}`} dataKey={`t${i}`} stroke="#2a2d40" strokeWidth={0.7}
               dot={false} isAnimationActive={false} />
@@ -366,6 +407,8 @@ export default function App() {
   const [currentGen, setCurrentGen] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playSpeed, setPlaySpeed] = useState(500);
+  const [showIndividualTrials, setShowIndividualTrials] = useState(true);
+  const [showAllGenerationsPsth, setShowAllGenerationsPsth] = useState(false);
   const intervalRef = useRef(null);
 
   // Auto-select first experiment when list loads
@@ -378,6 +421,7 @@ export default function App() {
   const { meta, evolTraj, loading: loadingExp, cache } = useExperimentData(selectedExp);
   const maxGen = meta?.num_generations || 20;
   const { genData, loading: loadingGen } = useGenerationData(selectedExp, currentGen, cache);
+  const allGenPsth = useAllGenerationsPsth(selectedExp, maxGen, showAllGenerationsPsth);
 
   // Preload upcoming generations for smooth playback
   usePreloader(selectedExp, currentGen, maxGen, cache);
@@ -558,6 +602,32 @@ export default function App() {
                 )}
               </div>
 
+              {/* PSTH display toggles */}
+              <div style={{
+                display: "flex", alignItems: "center", gap: 20, marginBottom: 16,
+                flexWrap: "wrap",
+              }}>
+                <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontFamily: MONO, fontSize: 12, color: "#888" }}>
+                  <input
+                    type="checkbox"
+                    checked={showIndividualTrials}
+                    onChange={(e) => setShowIndividualTrials(e.target.checked)}
+                  />
+                  Show individual trial responses
+                </label>
+                <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontFamily: MONO, fontSize: 12, color: "#888" }}>
+                  <input
+                    type="checkbox"
+                    checked={showAllGenerationsPsth}
+                    onChange={(e) => setShowAllGenerationsPsth(e.target.checked)}
+                  />
+                  Show all generations (PSTH as gray)
+                </label>
+                {showAllGenerationsPsth && allGenPsth.loading && (
+                  <span style={{ fontFamily: MONO, fontSize: 11, color: "#60a5fa" }}>loading…</span>
+                )}
+              </div>
+
               {/* Two-column: DeepSim | BigGAN */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 24 }}>
                 {/* DeepSim */}
@@ -576,6 +646,8 @@ export default function App() {
                     gen={currentGen}
                     label="DeepSim"
                     color="#60a5fa"
+                    showIndividualTrials={showIndividualTrials}
+                    allGenerationsMeanRates={showAllGenerationsPsth ? allGenPsth.deepsim : null}
                   />
                 </div>
 
@@ -595,6 +667,8 @@ export default function App() {
                     gen={currentGen}
                     label="BigGAN"
                     color="#f87171"
+                    showIndividualTrials={showIndividualTrials}
+                    allGenerationsMeanRates={showAllGenerationsPsth ? allGenPsth.biggan : null}
                   />
                 </div>
               </div>
