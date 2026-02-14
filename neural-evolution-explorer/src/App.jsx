@@ -355,8 +355,8 @@ function EvolTrajChartInner({ width, height, chartData, hasRef, yDomain, totalGe
         )}
         <Line dataKey="deepsim" stroke="#60a5fa" strokeWidth={2} dot={false} isAnimationActive={false} />
         <Line dataKey="biggan" stroke="#f87171" strokeWidth={2} dot={false} isAnimationActive={false} />
-        {hasRef && <Line dataKey="ref_deepsim" stroke="#22d3ee" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} />}
-        {hasRef && <Line dataKey="ref_biggan" stroke="#a78bfa" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} />}
+        {hasRef && <Line dataKey="ref_deepsim" stroke="#60a5fa" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} />}
+        {hasRef && <Line dataKey="ref_biggan" stroke="#f87171" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} />}
       </ComposedChart>
     </div>
   );
@@ -431,8 +431,8 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
         <span style={{ fontSize: 11, color: "#f87171", fontFamily: MONO }}>● BigGAN</span>
         {hasRef && (
           <>
-            <span style={{ fontSize: 11, color: "#22d3ee", fontFamily: MONO }}>— — Ref DeepSim</span>
-            <span style={{ fontSize: 11, color: "#a78bfa", fontFamily: MONO }}>— — Ref BigGAN</span>
+            <span style={{ fontSize: 11, color: "#60a5fa", fontFamily: MONO }}>— — Ref DeepSim</span>
+            <span style={{ fontSize: 11, color: "#f87171", fontFamily: MONO }}>— — Ref BigGAN</span>
           </>
         )}
       </div>
