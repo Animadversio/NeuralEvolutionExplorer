@@ -312,9 +312,6 @@ function PSTHChart({ psth, gen, label, color, showIndividualTrials = true, allGe
 }
 
 
-// Set to true to show debug panel for ref lines (data + render check)
-const REF_LINES_DEBUG = true;
-
 /** Receives width/height from ResponsiveContainer; ref Lines are direct children (no Fragment) so all 4 lines can render in one chart */
 function EvolTrajChartInner({ width, height, chartData, hasRef, yDomain, totalGens }) {
   if (width == null || height == null || width <= 0 || height <= 0) return null;
@@ -416,38 +413,11 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
     return [Math.max(0, lo - pad), hi + pad];
   }, [chartData]);
 
-  // Debug: log and compute ref stats so we can tell if issue is data vs UI
-  const refDebug = useMemo(() => {
-    if (!REF_LINES_DEBUG || !hasRef || chartData.length === 0) return null;
-    const withRefDs = chartData.filter((d) => d.ref_deepsim != null);
-    const withRefBg = chartData.filter((d) => d.ref_biggan != null);
-    const sample = chartData.slice(0, 3).map((d) => ({ gen: d.gen, ref_deepsim: d.ref_deepsim, ref_biggan: d.ref_biggan }));
-    const info = {
-      hasRef,
-      chartDataLen: chartData.length,
-      pointsWithRefDeepsim: withRefDs.length,
-      pointsWithRefBiggan: withRefBg.length,
-      yDomain,
-      sample,
-    };
-    console.log("[EvolTrajChart ref lines debug]", info);
-    return info;
-  }, [hasRef, chartData, yDomain]);
-
   return (
     <div>
       <SectionLabel>CMAES Evolution Trajectory</SectionLabel>
-      {REF_LINES_DEBUG && hasRef && refDebug && (
-        <div style={{
-          fontSize: 10, fontFamily: MONO, color: "#888", marginBottom: 6,
-          padding: "6px 8px", background: "#0d0f14", borderRadius: 4, border: "1px solid #1a1d2e",
-        }}>
-          [DEBUG] hasRef={String(hasRef)} | chartData points={refDebug.chartDataLen} | ref_deepsim present in {refDebug.pointsWithRefDeepsim} | ref_biggan in {refDebug.pointsWithRefBiggan} | yDomain={refDebug.yDomain ? JSON.stringify(refDebug.yDomain) : "none"} | sample: {JSON.stringify(refDebug.sample)}
-        </div>
-      )}
       <div style={{ position: "relative", width: "100%", height: 180 }}>
         <ResponsiveContainer width="100%" height={180}>
-          {/* Single child so Recharts passes same width/height to both charts — fixes overlay x-axis misalignment */}
           <EvolTrajChartInner
             chartData={chartData}
             hasRef={hasRef}
