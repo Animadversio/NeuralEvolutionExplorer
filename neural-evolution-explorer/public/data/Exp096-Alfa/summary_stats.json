@@ -1,8 +1,0 @@
-{
-  "id": "Exp096-Alfa",
-  "num_generations": 41,
-  "deepsim_final_rate": 41.9,
-  "biggan_final_rate": 20.3,
-  "deepsim_rate_increase": 20.8,
-  "biggan_rate_increase": 6.8
-}

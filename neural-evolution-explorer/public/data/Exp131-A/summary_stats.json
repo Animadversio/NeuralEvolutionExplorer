@@ -1,0 +1,8 @@
+{
+  "id": "Exp131-A",
+  "num_generations": 26,
+  "deepsim_final_rate": 82.4,
+  "biggan_final_rate": 113.9,
+  "deepsim_rate_increase": 6.7,
+  "biggan_rate_increase": 15.6
+}

@@ -1,0 +1,8 @@
+{
+  "id": "Exp185-A",
+  "num_generations": 33,
+  "deepsim_final_rate": 3.2,
+  "biggan_final_rate": 6.9,
+  "deepsim_rate_increase": 1.0,
+  "biggan_rate_increase": 5.6
+}

@@ -1,8 +1,0 @@
-{
-  "id": "Exp115-Alfa",
-  "num_generations": 15,
-  "deepsim_final_rate": 18.1,
-  "biggan_final_rate": 12.8,
-  "deepsim_rate_increase": 9.1,
-  "biggan_rate_increase": 6.4
-}
