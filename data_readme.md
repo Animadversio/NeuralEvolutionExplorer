@@ -13,5 +13,5 @@ python scripts/export_neural_data.py --output ./neural-evolution-explorer/public
 ```
 Export max activating images. 
 ```bash
-python scripts/export_max_activating_images.py --output ./neural-evolution-explorer/public/data -n 10
+python scripts/export_max_activating_images.py --output ./neural-evolution-explorer/public/data -n 10 --format webp
 ```
