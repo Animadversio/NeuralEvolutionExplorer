@@ -176,6 +176,7 @@ const NARROW_BREAKPOINT_PX = 768;
 /** Short viewport (e.g. phone landscape 915×412): stack cards and image-on-top-of-chart */
 const SHORT_VIEWPORT_MAX_HEIGHT_PX = 500;
 const EVOL_TRAJ_MIN_WIDTH_PX = 240;
+const REPRESENTATIVE_IMAGE_MIN_SIZE_PX = 96;
 
 /** Match (max-width: NARROW_BREAKPOINT_PX) for narrow / phone layout */
 function useNarrowScreen() {
@@ -257,6 +258,7 @@ function MethodImage({ src, rate, gen, fallbackSrc }) {
       <SectionLabel>Representative Image</SectionLabel>
       <div style={{
         position: "relative", aspectRatio: "1",
+        minWidth: REPRESENTATIVE_IMAGE_MIN_SIZE_PX, minHeight: REPRESENTATIVE_IMAGE_MIN_SIZE_PX,
         background: "#0a0c14", borderRadius: 6, overflow: "hidden",
       }}>
         {displaySrc && !imgError ? (
