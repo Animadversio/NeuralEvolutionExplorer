@@ -1,0 +1,8 @@
+{
+  "id": "Exp067-B",
+  "num_generations": 43,
+  "deepsim_final_rate": 63.1,
+  "biggan_final_rate": 68.3,
+  "deepsim_rate_increase": 16.0,
+  "biggan_rate_increase": 11.6
+}

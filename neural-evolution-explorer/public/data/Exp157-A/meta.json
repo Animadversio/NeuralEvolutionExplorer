@@ -1,0 +1,23 @@
+{
+  "id": "Exp157-A",
+  "animal": "A",
+  "unit": "Ch58U1",
+  "area": "V4",
+  "date": "2021-01-07",
+  "num_generations": 38,
+  "deepsim_max_rate": 19.2,
+  "biggan_max_rate": 11.7,
+  "tags": [],
+  "thread0_space": "fc6",
+  "thread1_space": "BigGAN",
+  "image_size_deg": [
+    4.0,
+    4.0
+  ],
+  "image_pos_deg": [
+    -1.0,
+    -2.4,
+    -1.0,
+    -2.4
+  ]
+}

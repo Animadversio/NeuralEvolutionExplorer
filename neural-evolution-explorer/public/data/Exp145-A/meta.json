@@ -1,0 +1,23 @@
+{
+  "id": "Exp145-A",
+  "animal": "A",
+  "unit": "Ch7U1",
+  "area": "IT",
+  "date": "2020-10-21",
+  "num_generations": 31,
+  "deepsim_max_rate": 182.9,
+  "biggan_max_rate": 196.0,
+  "tags": [],
+  "thread0_space": "fc6",
+  "thread1_space": "BigGAN_class",
+  "image_size_deg": [
+    4.0,
+    4.0
+  ],
+  "image_pos_deg": [
+    -1.5,
+    -2.0,
+    -1.5,
+    -2.0
+  ]
+}

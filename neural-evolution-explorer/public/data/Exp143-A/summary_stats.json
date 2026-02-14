@@ -1,0 +1,8 @@
+{
+  "id": "Exp143-A",
+  "num_generations": 22,
+  "deepsim_final_rate": 70.9,
+  "biggan_final_rate": 86.0,
+  "deepsim_rate_increase": -4.4,
+  "biggan_rate_increase": -5.6
+}

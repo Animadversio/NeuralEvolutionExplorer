@@ -1,8 +1,0 @@
-{
-  "id": "Exp124-Alfa",
-  "num_generations": 25,
-  "deepsim_final_rate": 105.2,
-  "biggan_final_rate": 76.8,
-  "deepsim_rate_increase": 37.5,
-  "biggan_rate_increase": 10.8
-}

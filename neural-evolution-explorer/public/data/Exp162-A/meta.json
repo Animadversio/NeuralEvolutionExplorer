@@ -1,0 +1,23 @@
+{
+  "id": "Exp162-A",
+  "animal": "A",
+  "unit": "Ch24U2",
+  "area": "IT",
+  "date": "2021-01-20",
+  "num_generations": 9,
+  "deepsim_max_rate": 16.6,
+  "biggan_max_rate": 16.0,
+  "tags": [],
+  "thread0_space": "fc6",
+  "thread1_space": "BigGAN",
+  "image_size_deg": [
+    6.0,
+    6.0
+  ],
+  "image_pos_deg": [
+    -3.5,
+    -5.0,
+    -3.5,
+    -5.0
+  ]
+}

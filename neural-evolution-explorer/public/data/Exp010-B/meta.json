@@ -1,0 +1,23 @@
+{
+  "id": "Exp010-B",
+  "animal": "B",
+  "unit": "Ch18U1",
+  "area": "IT",
+  "date": "2020-07-29",
+  "num_generations": 27,
+  "deepsim_max_rate": 330.1,
+  "biggan_max_rate": 353.2,
+  "tags": [],
+  "thread0_space": "fc6",
+  "thread1_space": "BigGAN_class",
+  "image_size_deg": [
+    4.0,
+    4.0
+  ],
+  "image_pos_deg": [
+    -0.5,
+    1.0,
+    -0.5,
+    1.0
+  ]
+}
