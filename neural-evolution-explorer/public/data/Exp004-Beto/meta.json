@@ -1,0 +1,23 @@
+{
+  "id": "Exp004-Beto",
+  "animal": "Beto",
+  "unit": "Ch5U2",
+  "area": "IT",
+  "date": "2020-07-22",
+  "num_generations": 35,
+  "deepsim_max_rate": 226.6,
+  "biggan_max_rate": 240.4,
+  "tags": [],
+  "thread0_space": "BigGAN_class",
+  "thread1_space": "BigGAN_class",
+  "image_size_deg": [
+    6.0,
+    6.0
+  ],
+  "image_pos_deg": [
+    -0.7,
+    1.0,
+    0.0,
+    0.0
+  ]
+}

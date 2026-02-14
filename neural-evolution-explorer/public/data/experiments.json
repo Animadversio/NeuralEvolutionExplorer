@@ -1,0 +1,3912 @@
+[
+  {
+    "id": "Exp003-Beto",
+    "animal": "Beto",
+    "unit": "Ch5U2",
+    "area": "IT",
+    "date": "2020-07-22",
+    "num_generations": 47,
+    "deepsim_max_rate": 223.5,
+    "biggan_max_rate": 260.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.7,
+      1.0,
+      -0.7,
+      1.0
+    ]
+  },
+  {
+    "id": "Exp004-Beto",
+    "animal": "Beto",
+    "unit": "Ch5U2",
+    "area": "IT",
+    "date": "2020-07-22",
+    "num_generations": 35,
+    "deepsim_max_rate": 226.6,
+    "biggan_max_rate": 240.4,
+    "tags": [],
+    "thread0_space": "BigGAN_class",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      6.0,
+      6.0
+    ],
+    "image_pos_deg": [
+      -0.7,
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp005-Beto",
+    "animal": "Beto",
+    "unit": "Ch29U2",
+    "area": "IT",
+    "date": "2020-07-23",
+    "num_generations": 33,
+    "deepsim_max_rate": 86.4,
+    "biggan_max_rate": 46.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.8,
+      1.0,
+      -0.8,
+      1.0
+    ]
+  },
+  {
+    "id": "Exp006-Beto",
+    "animal": "Beto",
+    "unit": "Ch26U1",
+    "area": "IT",
+    "date": "2020-07-27",
+    "num_generations": 38,
+    "deepsim_max_rate": 180.9,
+    "biggan_max_rate": 244.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.1,
+      0.0,
+      -1.1,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp007-Beto",
+    "animal": "Beto",
+    "unit": "Ch15U1",
+    "area": "IT",
+    "date": "2020-07-28",
+    "num_generations": 30,
+    "deepsim_max_rate": 189.5,
+    "biggan_max_rate": 137.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.5,
+      1.0,
+      -0.5,
+      1.0
+    ]
+  },
+  {
+    "id": "Exp008-Beto",
+    "animal": "Beto",
+    "unit": "Ch15U1",
+    "area": "IT",
+    "date": "2020-07-28",
+    "num_generations": 40,
+    "deepsim_max_rate": 112.8,
+    "biggan_max_rate": 127.7,
+    "tags": [],
+    "thread0_space": "BigGAN_class",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.5,
+      1.0,
+      -0.5,
+      1.0
+    ]
+  },
+  {
+    "id": "Exp009-Beto",
+    "animal": "Beto",
+    "unit": "Ch28U1",
+    "area": "IT",
+    "date": "2020-07-29",
+    "num_generations": 26,
+    "deepsim_max_rate": 63.4,
+    "biggan_max_rate": 73.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.5,
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "id": "Exp010-Beto",
+    "animal": "Beto",
+    "unit": "Ch18U1",
+    "area": "IT",
+    "date": "2020-07-29",
+    "num_generations": 27,
+    "deepsim_max_rate": 330.1,
+    "biggan_max_rate": 353.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -0.5,
+      1.0,
+      -0.5,
+      1.0
+    ]
+  },
+  {
+    "id": "Exp012-Beto",
+    "animal": "Beto",
+    "unit": "Ch29U2",
+    "area": "IT",
+    "date": "2020-07-31",
+    "num_generations": 34,
+    "deepsim_max_rate": 224.0,
+    "biggan_max_rate": 254.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      1.5,
+      0.0,
+      1.5
+    ]
+  },
+  {
+    "id": "Exp013-Beto",
+    "animal": "Beto",
+    "unit": "Ch29U2",
+    "area": "IT",
+    "date": "2020-07-31",
+    "num_generations": 33,
+    "deepsim_max_rate": 219.8,
+    "biggan_max_rate": 220.1,
+    "tags": [],
+    "thread0_space": "BigGAN",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      1.5,
+      0.0,
+      1.5
+    ]
+  },
+  {
+    "id": "Exp014-Beto",
+    "animal": "Beto",
+    "unit": "Ch19U1",
+    "area": "IT",
+    "date": "2020-08-03",
+    "num_generations": 31,
+    "deepsim_max_rate": 119.6,
+    "biggan_max_rate": 148.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      3.0,
+      0.0,
+      3.0
+    ]
+  },
+  {
+    "id": "Exp015-Beto",
+    "animal": "Beto",
+    "unit": "Ch19U1",
+    "area": "IT",
+    "date": "2020-08-03",
+    "num_generations": 31,
+    "deepsim_max_rate": 273.1,
+    "biggan_max_rate": 275.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      3.0,
+      0.0,
+      3.0
+    ]
+  },
+  {
+    "id": "Exp016-Beto",
+    "animal": "Beto",
+    "unit": "Ch28U1",
+    "area": "IT",
+    "date": "2020-08-05",
+    "num_generations": 31,
+    "deepsim_max_rate": 166.2,
+    "biggan_max_rate": 169.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.5,
+      0.0,
+      -0.5,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp017-Beto",
+    "animal": "Beto",
+    "unit": "Ch28U1",
+    "area": "IT",
+    "date": "2020-08-05",
+    "num_generations": 32,
+    "deepsim_max_rate": 142.5,
+    "biggan_max_rate": 168.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.5,
+      0.0,
+      -0.5,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp018-Beto",
+    "animal": "Beto",
+    "unit": "Ch20U1",
+    "area": "IT",
+    "date": "2020-08-07",
+    "num_generations": 30,
+    "deepsim_max_rate": 165.5,
+    "biggan_max_rate": 195.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.4,
+      1.4,
+      -0.4,
+      1.4
+    ]
+  },
+  {
+    "id": "Exp019-Beto",
+    "animal": "Beto",
+    "unit": "Ch19U1",
+    "area": "IT",
+    "date": "2020-08-11",
+    "num_generations": 23,
+    "deepsim_max_rate": 135.9,
+    "biggan_max_rate": 220.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.3,
+      3.5,
+      0.3,
+      3.5
+    ]
+  },
+  {
+    "id": "Exp020-Beto",
+    "animal": "Beto",
+    "unit": "Ch19U1",
+    "area": "IT",
+    "date": "2020-08-11",
+    "num_generations": 23,
+    "deepsim_max_rate": 177.7,
+    "biggan_max_rate": 243.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      2.0,
+      0.0,
+      2.0
+    ]
+  },
+  {
+    "id": "Exp021-Beto",
+    "animal": "Beto",
+    "unit": "Ch28U1",
+    "area": "IT",
+    "date": "2020-08-13",
+    "num_generations": 30,
+    "deepsim_max_rate": 72.3,
+    "biggan_max_rate": 67.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      0.0,
+      -1.5,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp022-Beto",
+    "animal": "Beto",
+    "unit": "Ch26U1",
+    "area": "IT",
+    "date": "2020-08-17",
+    "num_generations": 32,
+    "deepsim_max_rate": 143.9,
+    "biggan_max_rate": 172.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -2.0,
+      0.0,
+      -2.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp023-Beto",
+    "animal": "Beto",
+    "unit": "Ch25U1",
+    "area": "IT",
+    "date": "2020-08-18",
+    "num_generations": 35,
+    "deepsim_max_rate": 143.1,
+    "biggan_max_rate": 146.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.1,
+      0.0,
+      -0.1,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp024-Beto",
+    "animal": "Beto",
+    "unit": "Ch15U1",
+    "area": "IT",
+    "date": "2020-08-20",
+    "num_generations": 28,
+    "deepsim_max_rate": 244.1,
+    "biggan_max_rate": 145.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      1.5,
+      0.0,
+      1.5
+    ]
+  },
+  {
+    "id": "Exp025-Beto",
+    "animal": "Beto",
+    "unit": "Ch49U1",
+    "area": "V4",
+    "date": "2020-08-20",
+    "num_generations": 29,
+    "deepsim_max_rate": 77.5,
+    "biggan_max_rate": 62.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp026-Beto",
+    "animal": "Beto",
+    "unit": "Ch52U1",
+    "area": "V4",
+    "date": "2020-08-24",
+    "num_generations": 26,
+    "deepsim_max_rate": 267.5,
+    "biggan_max_rate": 255.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp027-Beto",
+    "animal": "Beto",
+    "unit": "Ch62U1",
+    "area": "V4",
+    "date": "2020-08-24",
+    "num_generations": 22,
+    "deepsim_max_rate": 258.9,
+    "biggan_max_rate": 231.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp028-Beto",
+    "animal": "Beto",
+    "unit": "Ch61U1",
+    "area": "V4",
+    "date": "2020-08-26",
+    "num_generations": 27,
+    "deepsim_max_rate": 310.4,
+    "biggan_max_rate": 273.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -3.0,
+      -2.5,
+      -3.0,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp029-Beto",
+    "animal": "Beto",
+    "unit": "Ch1U1",
+    "area": "IT",
+    "date": "2020-08-28",
+    "num_generations": 29,
+    "deepsim_max_rate": 110.0,
+    "biggan_max_rate": 106.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp030-Beto",
+    "animal": "Beto",
+    "unit": "Ch13U1",
+    "area": "IT",
+    "date": "2020-08-31",
+    "num_generations": 38,
+    "deepsim_max_rate": 119.5,
+    "biggan_max_rate": 128.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.0,
+      0.0,
+      -1.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp031-Beto",
+    "animal": "Beto",
+    "unit": "Ch27U1",
+    "area": "IT",
+    "date": "2020-09-01",
+    "num_generations": 42,
+    "deepsim_max_rate": 107.5,
+    "biggan_max_rate": 27.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp032-Beto",
+    "animal": "Beto",
+    "unit": "Ch29U1",
+    "area": "IT",
+    "date": "2020-09-01",
+    "num_generations": 28,
+    "deepsim_max_rate": 294.5,
+    "biggan_max_rate": 259.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp033-Beto",
+    "animal": "Beto",
+    "unit": "Ch4U1",
+    "area": "IT",
+    "date": "2020-09-03",
+    "num_generations": 25,
+    "deepsim_max_rate": 148.5,
+    "biggan_max_rate": 171.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.0,
+      0.5,
+      -1.0,
+      0.5
+    ]
+  },
+  {
+    "id": "Exp034-Beto",
+    "animal": "Beto",
+    "unit": "Ch60U1",
+    "area": "V4",
+    "date": "2020-09-03",
+    "num_generations": 21,
+    "deepsim_max_rate": 370.4,
+    "biggan_max_rate": 364.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp035-Beto",
+    "animal": "Beto",
+    "unit": "Ch5U2",
+    "area": "IT",
+    "date": "2020-09-07",
+    "num_generations": 23,
+    "deepsim_max_rate": 204.2,
+    "biggan_max_rate": 169.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp036-Beto",
+    "animal": "Beto",
+    "unit": "Ch51U1",
+    "area": "V4",
+    "date": "2020-09-07",
+    "num_generations": 21,
+    "deepsim_max_rate": 252.3,
+    "biggan_max_rate": 253.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp037-Beto",
+    "animal": "Beto",
+    "unit": "Ch17U1",
+    "area": "IT",
+    "date": "2020-09-10",
+    "num_generations": 25,
+    "deepsim_max_rate": 185.9,
+    "biggan_max_rate": 183.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      0.0,
+      -1.5,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp038-Beto",
+    "animal": "Beto",
+    "unit": "Ch4U1",
+    "area": "IT",
+    "date": "2020-09-10",
+    "num_generations": 20,
+    "deepsim_max_rate": 132.4,
+    "biggan_max_rate": 148.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      1.5,
+      0.0,
+      1.5
+    ]
+  },
+  {
+    "id": "Exp039-Beto",
+    "animal": "Beto",
+    "unit": "Ch51U1",
+    "area": "V4",
+    "date": "2020-09-14",
+    "num_generations": 22,
+    "deepsim_max_rate": 304.5,
+    "biggan_max_rate": 284.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp040-Beto",
+    "animal": "Beto",
+    "unit": "Ch59U1",
+    "area": "V4",
+    "date": "2020-09-14",
+    "num_generations": 20,
+    "deepsim_max_rate": 278.7,
+    "biggan_max_rate": 262.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp041-Beto",
+    "animal": "Beto",
+    "unit": "Ch29U1",
+    "area": "IT",
+    "date": "2020-09-17",
+    "num_generations": 35,
+    "deepsim_max_rate": 116.8,
+    "biggan_max_rate": 86.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "id": "Exp042-Beto",
+    "animal": "Beto",
+    "unit": "Ch64U1",
+    "area": "V4",
+    "date": "2020-09-17",
+    "num_generations": 16,
+    "deepsim_max_rate": 266.4,
+    "biggan_max_rate": 243.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp043-Beto",
+    "animal": "Beto",
+    "unit": "Ch57U1",
+    "area": "V4",
+    "date": "2020-09-23",
+    "num_generations": 24,
+    "deepsim_max_rate": 269.8,
+    "biggan_max_rate": 233.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp044-Beto",
+    "animal": "Beto",
+    "unit": "Ch27U1",
+    "area": "IT",
+    "date": "2020-09-23",
+    "num_generations": 18,
+    "deepsim_max_rate": 82.2,
+    "biggan_max_rate": 96.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp045-Beto",
+    "animal": "Beto",
+    "unit": "Ch54U1",
+    "area": "V4",
+    "date": "2020-09-23",
+    "num_generations": 21,
+    "deepsim_max_rate": 232.8,
+    "biggan_max_rate": 189.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp046-Beto",
+    "animal": "Beto",
+    "unit": "Ch55U1",
+    "area": "V4",
+    "date": "2020-09-23",
+    "num_generations": 10,
+    "deepsim_max_rate": 186.6,
+    "biggan_max_rate": 159.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp047-Beto",
+    "animal": "Beto",
+    "unit": "Ch55U1",
+    "area": "V4",
+    "date": "2020-09-29",
+    "num_generations": 18,
+    "deepsim_max_rate": 196.1,
+    "biggan_max_rate": 155.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp048-Beto",
+    "animal": "Beto",
+    "unit": "Ch5U1",
+    "area": "IT",
+    "date": "2020-10-16",
+    "num_generations": 31,
+    "deepsim_max_rate": 78.7,
+    "biggan_max_rate": 91.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      -0.5,
+      0.7,
+      -0.5,
+      0.7
+    ]
+  },
+  {
+    "id": "Exp049-Beto",
+    "animal": "Beto",
+    "unit": "Ch5U2",
+    "area": "IT",
+    "date": "2020-10-27",
+    "num_generations": 24,
+    "deepsim_max_rate": 151.5,
+    "biggan_max_rate": 98.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp050-Beto",
+    "animal": "Beto",
+    "unit": "Ch42U1",
+    "area": "V1",
+    "date": "2020-10-27",
+    "num_generations": 11,
+    "deepsim_max_rate": 256.7,
+    "biggan_max_rate": 262.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp051-Beto",
+    "animal": "Beto",
+    "unit": "Ch42U1",
+    "area": "V1",
+    "date": "2020-10-27",
+    "num_generations": 18,
+    "deepsim_max_rate": 115.4,
+    "biggan_max_rate": 98.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp052-Beto",
+    "animal": "Beto",
+    "unit": "Ch39U2",
+    "area": "V1",
+    "date": "2020-11-10",
+    "num_generations": 15,
+    "deepsim_max_rate": 140.6,
+    "biggan_max_rate": 86.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp053-Beto",
+    "animal": "Beto",
+    "unit": "Ch29U1",
+    "area": "IT",
+    "date": "2020-11-20",
+    "num_generations": 28,
+    "deepsim_max_rate": 105.5,
+    "biggan_max_rate": 77.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "id": "Exp054-Beto",
+    "animal": "Beto",
+    "unit": "Ch48U1",
+    "area": "V1",
+    "date": "2020-11-24",
+    "num_generations": 23,
+    "deepsim_max_rate": 165.4,
+    "biggan_max_rate": 149.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp055-Beto",
+    "animal": "Beto",
+    "unit": "Ch33U1",
+    "area": "V1",
+    "date": "2020-12-04",
+    "num_generations": 21,
+    "deepsim_max_rate": 194.7,
+    "biggan_max_rate": 171.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp056-Beto",
+    "animal": "Beto",
+    "unit": "Ch57U1",
+    "area": "V4",
+    "date": "2020-12-04",
+    "num_generations": 18,
+    "deepsim_max_rate": 112.8,
+    "biggan_max_rate": 118.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp057-Beto",
+    "animal": "Beto",
+    "unit": "Ch36U1",
+    "area": "V1",
+    "date": "2020-12-08",
+    "num_generations": 20,
+    "deepsim_max_rate": 285.0,
+    "biggan_max_rate": 271.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp063-Beto",
+    "animal": "Beto",
+    "unit": "Ch2U1",
+    "area": "V4",
+    "date": "2021-12-20",
+    "num_generations": 41,
+    "deepsim_max_rate": 36.7,
+    "biggan_max_rate": 36.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.6,
+      -1.8,
+      0.6,
+      -1.8
+    ]
+  },
+  {
+    "id": "Exp064-Beto",
+    "animal": "Beto",
+    "unit": "Ch12U1",
+    "area": "V4",
+    "date": "2021-12-22",
+    "num_generations": 46,
+    "deepsim_max_rate": 32.7,
+    "biggan_max_rate": 35.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      2.6,
+      -2.0,
+      2.6,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp065-Beto",
+    "animal": "Beto",
+    "unit": "Ch64U1",
+    "area": "IT",
+    "date": "2022-01-04",
+    "num_generations": 41,
+    "deepsim_max_rate": 273.1,
+    "biggan_max_rate": 280.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp066-Beto",
+    "animal": "Beto",
+    "unit": "Ch42U1",
+    "area": "IT",
+    "date": "2022-01-05",
+    "num_generations": 46,
+    "deepsim_max_rate": 228.8,
+    "biggan_max_rate": 200.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.5,
+      0.0,
+      0.5,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp067-Beto",
+    "animal": "Beto",
+    "unit": "Ch55U1",
+    "area": "IT",
+    "date": "2022-01-07",
+    "num_generations": 43,
+    "deepsim_max_rate": 72.4,
+    "biggan_max_rate": 78.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      1.3,
+      -0.4,
+      1.3,
+      -0.4
+    ]
+  },
+  {
+    "id": "Exp068-Beto",
+    "animal": "Beto",
+    "unit": "Ch16U1",
+    "area": "V4",
+    "date": "2022-01-10",
+    "num_generations": 12,
+    "deepsim_max_rate": 98.2,
+    "biggan_max_rate": 99.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      2.5,
+      -1.1,
+      2.5,
+      -1.1
+    ]
+  },
+  {
+    "id": "Exp069-Beto",
+    "animal": "Beto",
+    "unit": "Ch13U1",
+    "area": "V4",
+    "date": "2022-01-10",
+    "num_generations": 41,
+    "deepsim_max_rate": 97.0,
+    "biggan_max_rate": 103.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      1.3,
+      -1.0,
+      1.3,
+      -1.0
+    ]
+  },
+  {
+    "id": "Exp070-Beto",
+    "animal": "Beto",
+    "unit": "Ch7U1",
+    "area": "V4",
+    "date": "2022-01-12",
+    "num_generations": 45,
+    "deepsim_max_rate": 242.2,
+    "biggan_max_rate": 275.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      2.1,
+      -1.0,
+      2.1,
+      -1.0
+    ]
+  },
+  {
+    "id": "Exp071-Beto",
+    "animal": "Beto",
+    "unit": "Ch22U1",
+    "area": "V1",
+    "date": "2022-01-14",
+    "num_generations": 45,
+    "deepsim_max_rate": 12.4,
+    "biggan_max_rate": 6.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -0.4,
+      0.0,
+      -0.4
+    ]
+  },
+  {
+    "id": "Exp072-Beto",
+    "animal": "Beto",
+    "unit": "Ch47U1",
+    "area": "IT",
+    "date": "2022-01-26",
+    "num_generations": 43,
+    "deepsim_max_rate": 66.2,
+    "biggan_max_rate": 51.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp073-Beto",
+    "animal": "Beto",
+    "unit": "Ch59U1",
+    "area": "IT",
+    "date": "2022-02-14",
+    "num_generations": 40,
+    "deepsim_max_rate": 101.4,
+    "biggan_max_rate": 131.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.6,
+      0.1,
+      0.6,
+      0.1
+    ]
+  },
+  {
+    "id": "Exp074-Beto",
+    "animal": "Beto",
+    "unit": "Ch47U1",
+    "area": "IT",
+    "date": "2022-05-06",
+    "num_generations": 41,
+    "deepsim_max_rate": 60.0,
+    "biggan_max_rate": 58.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.5,
+      3.5
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp075-Beto",
+    "animal": "Beto",
+    "unit": "Ch42U1",
+    "area": "IT",
+    "date": "2022-05-11",
+    "num_generations": 51,
+    "deepsim_max_rate": 274.3,
+    "biggan_max_rate": 216.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp076-Beto",
+    "animal": "Beto",
+    "unit": "Ch12U1",
+    "area": "V4",
+    "date": "2022-05-16",
+    "num_generations": 54,
+    "deepsim_max_rate": 9.8,
+    "biggan_max_rate": 14.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      2.0,
+      -1.7,
+      2.0,
+      -1.7
+    ]
+  },
+  {
+    "id": "Exp077-Beto",
+    "animal": "Beto",
+    "unit": "Ch38U1",
+    "area": "IT",
+    "date": "2022-05-24",
+    "num_generations": 50,
+    "deepsim_max_rate": 81.1,
+    "biggan_max_rate": 87.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp078-Beto",
+    "animal": "Beto",
+    "unit": "Ch8U1",
+    "area": "V4",
+    "date": "2022-05-31",
+    "num_generations": 54,
+    "deepsim_max_rate": 242.4,
+    "biggan_max_rate": 206.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      1.3,
+      -1.2,
+      1.3,
+      -1.2
+    ]
+  },
+  {
+    "id": "Exp079-Beto",
+    "animal": "Beto",
+    "unit": "Ch64U1",
+    "area": "IT",
+    "date": "2022-06-07",
+    "num_generations": 56,
+    "deepsim_max_rate": 142.8,
+    "biggan_max_rate": 140.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp080-Beto",
+    "animal": "Beto",
+    "unit": "Ch6U1",
+    "area": "V4",
+    "date": "2022-06-13",
+    "num_generations": 43,
+    "deepsim_max_rate": 217.4,
+    "biggan_max_rate": 174.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp087-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-07-22",
+    "num_generations": 11,
+    "deepsim_max_rate": 56.6,
+    "biggan_max_rate": 53.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -3.5,
+      0.0,
+      -3.5
+    ]
+  },
+  {
+    "id": "Exp088-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch16U1",
+    "area": "IT",
+    "date": "2020-07-22",
+    "num_generations": 6,
+    "deepsim_max_rate": 87.4,
+    "biggan_max_rate": 100.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp089-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch3U1",
+    "area": "IT",
+    "date": "2020-07-23",
+    "num_generations": 36,
+    "deepsim_max_rate": 13.6,
+    "biggan_max_rate": 18.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -3.0,
+      0.0,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp090-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-07-23",
+    "num_generations": 27,
+    "deepsim_max_rate": 125.0,
+    "biggan_max_rate": 166.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.3,
+      -3.3,
+      -0.3,
+      -3.3
+    ]
+  },
+  {
+    "id": "Exp091-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-07-23",
+    "num_generations": 20,
+    "deepsim_max_rate": 55.8,
+    "biggan_max_rate": 71.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -3.0,
+      0.0,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp092-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch28U1",
+    "area": "IT",
+    "date": "2020-07-27",
+    "num_generations": 37,
+    "deepsim_max_rate": 163.4,
+    "biggan_max_rate": 221.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -2.0,
+      -2.5,
+      -2.0,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp093-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch2U1",
+    "area": "IT",
+    "date": "2020-07-27",
+    "num_generations": 32,
+    "deepsim_max_rate": 90.3,
+    "biggan_max_rate": 118.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -2.0,
+      -3.5,
+      -2.0,
+      -3.5
+    ]
+  },
+  {
+    "id": "Exp094-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch27U1",
+    "area": "IT",
+    "date": "2020-07-28",
+    "num_generations": 34,
+    "deepsim_max_rate": 38.6,
+    "biggan_max_rate": 34.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.2,
+      -0.2,
+      -0.2,
+      -0.2
+    ]
+  },
+  {
+    "id": "Exp095-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch9U1",
+    "area": "IT",
+    "date": "2020-07-28",
+    "num_generations": 22,
+    "deepsim_max_rate": 104.9,
+    "biggan_max_rate": 140.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -2.2,
+      -2.2,
+      -2.2,
+      -2.2
+    ]
+  },
+  {
+    "id": "Exp096-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch32U1",
+    "area": "IT",
+    "date": "2020-07-29",
+    "num_generations": 41,
+    "deepsim_max_rate": 48.0,
+    "biggan_max_rate": 40.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -4.0,
+      -4.0,
+      -4.0,
+      -4.0
+    ]
+  },
+  {
+    "id": "Exp098-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch7U1",
+    "area": "IT",
+    "date": "2020-07-30",
+    "num_generations": 25,
+    "deepsim_max_rate": 117.1,
+    "biggan_max_rate": 105.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.5,
+      -0.5,
+      -0.5,
+      -0.5
+    ]
+  },
+  {
+    "id": "Exp099-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch22U1",
+    "area": "IT",
+    "date": "2020-08-04",
+    "num_generations": 30,
+    "deepsim_max_rate": 41.2,
+    "biggan_max_rate": 38.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.5,
+      0.0,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp100-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch14U1",
+    "area": "IT",
+    "date": "2020-08-04",
+    "num_generations": 18,
+    "deepsim_max_rate": 87.8,
+    "biggan_max_rate": 137.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.5,
+      0.0,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp101-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-08-06",
+    "num_generations": 29,
+    "deepsim_max_rate": 60.0,
+    "biggan_max_rate": 87.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.3,
+      -3.0,
+      -0.3,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp102-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch15U1",
+    "area": "IT",
+    "date": "2020-08-06",
+    "num_generations": 22,
+    "deepsim_max_rate": 82.1,
+    "biggan_max_rate": 98.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp103-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-08-10",
+    "num_generations": 26,
+    "deepsim_max_rate": 68.9,
+    "biggan_max_rate": 88.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.6,
+      0.0,
+      -2.6
+    ]
+  },
+  {
+    "id": "Exp104-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch19U1",
+    "area": "IT",
+    "date": "2020-08-10",
+    "num_generations": 24,
+    "deepsim_max_rate": 90.3,
+    "biggan_max_rate": 126.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      1.0,
+      -3.0,
+      1.0,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp105-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-08-10",
+    "num_generations": 24,
+    "deepsim_max_rate": 95.1,
+    "biggan_max_rate": 119.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.3,
+      -3.0,
+      -0.3,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp106-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch29U1",
+    "area": "IT",
+    "date": "2020-08-12",
+    "num_generations": 23,
+    "deepsim_max_rate": 49.0,
+    "biggan_max_rate": 150.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.0,
+      0.0,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp107-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch29U1",
+    "area": "IT",
+    "date": "2020-08-13",
+    "num_generations": 24,
+    "deepsim_max_rate": 106.1,
+    "biggan_max_rate": 144.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.0,
+      0.0,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp109-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch56U1",
+    "area": "V4",
+    "date": "2020-08-13",
+    "num_generations": 30,
+    "deepsim_max_rate": 158.4,
+    "biggan_max_rate": 122.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp110-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch60U1",
+    "area": "V4",
+    "date": "2020-08-13",
+    "num_generations": 31,
+    "deepsim_max_rate": 231.8,
+    "biggan_max_rate": 207.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp111-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch51U1",
+    "area": "V4",
+    "date": "2020-08-14",
+    "num_generations": 30,
+    "deepsim_max_rate": 122.5,
+    "biggan_max_rate": 101.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.8,
+      -1.8,
+      -1.8,
+      -1.8
+    ]
+  },
+  {
+    "id": "Exp112-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch63U1",
+    "area": "V4",
+    "date": "2020-08-14",
+    "num_generations": 20,
+    "deepsim_max_rate": 204.1,
+    "biggan_max_rate": 141.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -1.0,
+      0.0,
+      -1.0
+    ]
+  },
+  {
+    "id": "Exp113-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch58U1",
+    "area": "V4",
+    "date": "2020-08-19",
+    "num_generations": 27,
+    "deepsim_max_rate": 159.2,
+    "biggan_max_rate": 139.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.0,
+      0.0,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp114-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch55U1",
+    "area": "V4",
+    "date": "2020-08-19",
+    "num_generations": 32,
+    "deepsim_max_rate": 240.3,
+    "biggan_max_rate": 157.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.0,
+      -2.2,
+      -1.0,
+      -2.2
+    ]
+  },
+  {
+    "id": "Exp115-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch50U1",
+    "area": "V4",
+    "date": "2020-08-19",
+    "num_generations": 15,
+    "deepsim_max_rate": 18.2,
+    "biggan_max_rate": 16.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -5.5,
+      0.0,
+      -5.5
+    ]
+  },
+  {
+    "id": "Exp116-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch60U1",
+    "area": "V4",
+    "date": "2020-08-25",
+    "num_generations": 24,
+    "deepsim_max_rate": 196.4,
+    "biggan_max_rate": 166.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -0.5,
+      0.0,
+      -0.5
+    ]
+  },
+  {
+    "id": "Exp117-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch59U1",
+    "area": "V4",
+    "date": "2020-08-25",
+    "num_generations": 24,
+    "deepsim_max_rate": 91.4,
+    "biggan_max_rate": 67.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -2.5,
+      -2.5,
+      -2.5,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp118-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch7U1",
+    "area": "IT",
+    "date": "2020-08-27",
+    "num_generations": 30,
+    "deepsim_max_rate": 107.1,
+    "biggan_max_rate": 102.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      -1.5,
+      -1.5,
+      -1.5
+    ]
+  },
+  {
+    "id": "Exp119-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch52U1",
+    "area": "V4",
+    "date": "2020-08-27",
+    "num_generations": 13,
+    "deepsim_max_rate": 175.6,
+    "biggan_max_rate": 137.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp120-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch3U1",
+    "area": "IT",
+    "date": "2020-09-01",
+    "num_generations": 25,
+    "deepsim_max_rate": 68.4,
+    "biggan_max_rate": 90.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      -1.5,
+      -1.5,
+      -1.5
+    ]
+  },
+  {
+    "id": "Exp121-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch52U1",
+    "area": "V4",
+    "date": "2020-09-01",
+    "num_generations": 26,
+    "deepsim_max_rate": 178.6,
+    "biggan_max_rate": 157.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp122-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch50U1",
+    "area": "V4",
+    "date": "2020-09-02",
+    "num_generations": 26,
+    "deepsim_max_rate": 36.6,
+    "biggan_max_rate": 13.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -5.0,
+      0.0,
+      -5.0
+    ]
+  },
+  {
+    "id": "Exp123-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch64U1",
+    "area": "V4",
+    "date": "2020-09-02",
+    "num_generations": 26,
+    "deepsim_max_rate": 319.1,
+    "biggan_max_rate": 252.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -1.0,
+      0.0,
+      -1.0
+    ]
+  },
+  {
+    "id": "Exp124-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch49U1",
+    "area": "V4",
+    "date": "2020-09-02",
+    "num_generations": 25,
+    "deepsim_max_rate": 115.4,
+    "biggan_max_rate": 86.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp125-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch25U1",
+    "area": "IT",
+    "date": "2020-09-04",
+    "num_generations": 25,
+    "deepsim_max_rate": 56.4,
+    "biggan_max_rate": 60.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      2.5,
+      -2.5,
+      2.5,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp126-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch57U1",
+    "area": "V4",
+    "date": "2020-09-08",
+    "num_generations": 25,
+    "deepsim_max_rate": 223.0,
+    "biggan_max_rate": 189.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp127-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch21U1",
+    "area": "IT",
+    "date": "2020-09-08",
+    "num_generations": 20,
+    "deepsim_max_rate": 96.0,
+    "biggan_max_rate": 105.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.3,
+      0.0,
+      -2.3
+    ]
+  },
+  {
+    "id": "Exp128-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch62U1",
+    "area": "V4",
+    "date": "2020-09-08",
+    "num_generations": 20,
+    "deepsim_max_rate": 303.7,
+    "biggan_max_rate": 276.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp129-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch32U1",
+    "area": "IT",
+    "date": "2020-09-11",
+    "num_generations": 27,
+    "deepsim_max_rate": 52.4,
+    "biggan_max_rate": 33.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -3.5,
+      -3.5,
+      -3.5,
+      -3.5
+    ]
+  },
+  {
+    "id": "Exp130-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch30U1",
+    "area": "IT",
+    "date": "2020-09-11",
+    "num_generations": 24,
+    "deepsim_max_rate": 57.6,
+    "biggan_max_rate": 91.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -2.0,
+      -2.0,
+      -2.0,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp131-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch10U1",
+    "area": "IT",
+    "date": "2020-09-16",
+    "num_generations": 26,
+    "deepsim_max_rate": 98.7,
+    "biggan_max_rate": 116.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -0.2,
+      -2.2,
+      -0.2,
+      -2.2
+    ]
+  },
+  {
+    "id": "Exp132-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch15U1",
+    "area": "IT",
+    "date": "2020-09-16",
+    "num_generations": 23,
+    "deepsim_max_rate": 25.5,
+    "biggan_max_rate": 40.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp133-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-09-18",
+    "num_generations": 21,
+    "deepsim_max_rate": 64.5,
+    "biggan_max_rate": 80.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.7,
+      0.0,
+      -2.7
+    ]
+  },
+  {
+    "id": "Exp134-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-09-18",
+    "num_generations": 33,
+    "deepsim_max_rate": 67.9,
+    "biggan_max_rate": 93.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.7,
+      0.0,
+      -2.7
+    ]
+  },
+  {
+    "id": "Exp135-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-09-18",
+    "num_generations": 33,
+    "deepsim_max_rate": 74.8,
+    "biggan_max_rate": 88.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.7,
+      0.0,
+      -2.7
+    ]
+  },
+  {
+    "id": "Exp136-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch11U1",
+    "area": "IT",
+    "date": "2020-09-22",
+    "num_generations": 21,
+    "deepsim_max_rate": 132.9,
+    "biggan_max_rate": 146.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -2.0,
+      -1.0,
+      -2.0,
+      -1.0
+    ]
+  },
+  {
+    "id": "Exp137-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch20U1",
+    "area": "IT",
+    "date": "2020-09-22",
+    "num_generations": 24,
+    "deepsim_max_rate": 165.4,
+    "biggan_max_rate": 205.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -3.0,
+      0.0,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp138-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch18U1",
+    "area": "IT",
+    "date": "2020-09-22",
+    "num_generations": 26,
+    "deepsim_max_rate": 88.0,
+    "biggan_max_rate": 104.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -4.0,
+      0.0,
+      -4.0
+    ]
+  },
+  {
+    "id": "Exp139-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch61U1",
+    "area": "V4",
+    "date": "2020-09-22",
+    "num_generations": 20,
+    "deepsim_max_rate": 205.4,
+    "biggan_max_rate": 183.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp140-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch54U1",
+    "area": "V4",
+    "date": "2020-09-22",
+    "num_generations": 22,
+    "deepsim_max_rate": 218.1,
+    "biggan_max_rate": 173.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp141-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch24U1",
+    "area": "IT",
+    "date": "2020-09-24",
+    "num_generations": 20,
+    "deepsim_max_rate": 70.5,
+    "biggan_max_rate": 81.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.0,
+      -3.5,
+      -1.0,
+      -3.5
+    ]
+  },
+  {
+    "id": "Exp142-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch4U1",
+    "area": "IT",
+    "date": "2020-09-24",
+    "num_generations": 23,
+    "deepsim_max_rate": 59.3,
+    "biggan_max_rate": 75.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -2.0,
+      -2.5,
+      -2.0,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp143-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch14U1",
+    "area": "IT",
+    "date": "2020-09-24",
+    "num_generations": 22,
+    "deepsim_max_rate": 79.4,
+    "biggan_max_rate": 102.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.0,
+      0.0,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp144-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch6U1",
+    "area": "IT",
+    "date": "2020-10-21",
+    "num_generations": 31,
+    "deepsim_max_rate": 55.3,
+    "biggan_max_rate": 64.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.4,
+      0.0,
+      -2.4
+    ]
+  },
+  {
+    "id": "Exp145-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch7U1",
+    "area": "IT",
+    "date": "2020-10-21",
+    "num_generations": 31,
+    "deepsim_max_rate": 182.9,
+    "biggan_max_rate": 196.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      -2.0,
+      -1.5,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp146-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch16U1",
+    "area": "IT",
+    "date": "2020-10-23",
+    "num_generations": 21,
+    "deepsim_max_rate": 104.3,
+    "biggan_max_rate": 114.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.0,
+      0.0,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp147-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch26U1",
+    "area": "IT",
+    "date": "2020-10-27",
+    "num_generations": 21,
+    "deepsim_max_rate": 4.5,
+    "biggan_max_rate": 4.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      1.5,
+      -1.5,
+      1.5
+    ]
+  },
+  {
+    "id": "Exp148-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch9U1",
+    "area": "IT",
+    "date": "2020-10-27",
+    "num_generations": 29,
+    "deepsim_max_rate": 78.3,
+    "biggan_max_rate": 105.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.3,
+      -2.2,
+      -1.3,
+      -2.2
+    ]
+  },
+  {
+    "id": "Exp149-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch27U2",
+    "area": "IT",
+    "date": "2020-10-29",
+    "num_generations": 35,
+    "deepsim_max_rate": 161.1,
+    "biggan_max_rate": 138.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -0.5,
+      0.0,
+      -0.5
+    ]
+  },
+  {
+    "id": "Exp150-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch28U1",
+    "area": "IT",
+    "date": "2020-11-04",
+    "num_generations": 40,
+    "deepsim_max_rate": 176.8,
+    "biggan_max_rate": 200.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -2.0,
+      -3.5,
+      -2.0,
+      -3.5
+    ]
+  },
+  {
+    "id": "Exp151-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch1U3",
+    "area": "IT",
+    "date": "2020-11-06",
+    "num_generations": 25,
+    "deepsim_max_rate": 120.4,
+    "biggan_max_rate": 144.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -3.0,
+      -3.5,
+      -3.0,
+      -3.5
+    ]
+  },
+  {
+    "id": "Exp152-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch19U1",
+    "area": "IT",
+    "date": "2020-11-06",
+    "num_generations": 31,
+    "deepsim_max_rate": 120.1,
+    "biggan_max_rate": 177.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -2.4,
+      0.0,
+      -2.4
+    ]
+  },
+  {
+    "id": "Exp153-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch26U2",
+    "area": "IT",
+    "date": "2020-11-11",
+    "num_generations": 26,
+    "deepsim_max_rate": 7.1,
+    "biggan_max_rate": 11.4,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.5,
+      4.5
+    ],
+    "image_pos_deg": [
+      -0.1,
+      -2.6,
+      -0.1,
+      -2.6
+    ]
+  },
+  {
+    "id": "Exp155-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch12U1",
+    "area": "IT",
+    "date": "2020-11-25",
+    "num_generations": 23,
+    "deepsim_max_rate": 269.3,
+    "biggan_max_rate": 262.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -0.8,
+      0.0,
+      -0.8
+    ]
+  },
+  {
+    "id": "Exp156-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch20U1",
+    "area": "IT",
+    "date": "2020-12-09",
+    "num_generations": 31,
+    "deepsim_max_rate": 54.4,
+    "biggan_max_rate": 64.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -2.8,
+      -4.5,
+      -2.8,
+      -4.5
+    ]
+  },
+  {
+    "id": "Exp157-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch58U1",
+    "area": "V4",
+    "date": "2021-01-07",
+    "num_generations": 38,
+    "deepsim_max_rate": 19.2,
+    "biggan_max_rate": 11.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.0,
+      -2.4,
+      -1.0,
+      -2.4
+    ]
+  },
+  {
+    "id": "Exp159-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch27U1",
+    "area": "IT",
+    "date": "2021-01-12",
+    "num_generations": 44,
+    "deepsim_max_rate": 27.4,
+    "biggan_max_rate": 21.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ]
+  },
+  {
+    "id": "Exp160-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch28U1",
+    "area": "IT",
+    "date": "2021-01-13",
+    "num_generations": 45,
+    "deepsim_max_rate": 65.0,
+    "biggan_max_rate": 56.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -2.3,
+      -4.5,
+      -2.3,
+      -4.5
+    ]
+  },
+  {
+    "id": "Exp161-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch32U1",
+    "area": "IT",
+    "date": "2021-01-20",
+    "num_generations": 39,
+    "deepsim_max_rate": 104.3,
+    "biggan_max_rate": 99.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      6.0,
+      6.0
+    ],
+    "image_pos_deg": [
+      -5.0,
+      -3.4,
+      -5.0,
+      -3.4
+    ]
+  },
+  {
+    "id": "Exp162-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch24U2",
+    "area": "IT",
+    "date": "2021-01-20",
+    "num_generations": 9,
+    "deepsim_max_rate": 16.6,
+    "biggan_max_rate": 16.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      6.0,
+      6.0
+    ],
+    "image_pos_deg": [
+      -3.5,
+      -5.0,
+      -3.5,
+      -5.0
+    ]
+  },
+  {
+    "id": "Exp163-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch55U1",
+    "area": "V4",
+    "date": "2021-01-20",
+    "num_generations": 20,
+    "deepsim_max_rate": 21.8,
+    "biggan_max_rate": 7.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -1.5,
+      0.0,
+      -1.5
+    ]
+  },
+  {
+    "id": "Exp164-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch58U1",
+    "area": "V4",
+    "date": "2021-01-26",
+    "num_generations": 32,
+    "deepsim_max_rate": 18.8,
+    "biggan_max_rate": 13.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -0.6,
+      -4.2,
+      -0.6,
+      -4.2
+    ]
+  },
+  {
+    "id": "Exp165-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch7U1",
+    "area": "IT",
+    "date": "2021-01-26",
+    "num_generations": 23,
+    "deepsim_max_rate": 75.7,
+    "biggan_max_rate": 100.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.0,
+      -2.5,
+      -1.0,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp166-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch24U2",
+    "area": "IT",
+    "date": "2021-01-28",
+    "num_generations": 11,
+    "deepsim_max_rate": 32.4,
+    "biggan_max_rate": 36.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      6.0,
+      6.0
+    ],
+    "image_pos_deg": [
+      -4.0,
+      -5.0,
+      -4.0,
+      -5.0
+    ]
+  },
+  {
+    "id": "Exp167-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch5U1",
+    "area": "IT",
+    "date": "2021-01-28",
+    "num_generations": 28,
+    "deepsim_max_rate": 96.4,
+    "biggan_max_rate": 102.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -2.5,
+      -3.9,
+      -2.5,
+      -3.9
+    ]
+  },
+  {
+    "id": "Exp168-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch27U1",
+    "area": "IT",
+    "date": "2021-02-18",
+    "num_generations": 32,
+    "deepsim_max_rate": 55.1,
+    "biggan_max_rate": 14.5,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      7.0,
+      7.0
+    ],
+    "image_pos_deg": [
+      -3.0,
+      -3.0,
+      -3.0,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp169-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch32U1",
+    "area": "IT",
+    "date": "2021-02-19",
+    "num_generations": 36,
+    "deepsim_max_rate": 62.4,
+    "biggan_max_rate": 49.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      7.0,
+      7.0
+    ],
+    "image_pos_deg": [
+      -3.0,
+      -3.0,
+      -3.0,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp170-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch3U1",
+    "area": "IT",
+    "date": "2021-02-25",
+    "num_generations": 31,
+    "deepsim_max_rate": 105.0,
+    "biggan_max_rate": 139.2,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      6.0,
+      6.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      -2.0,
+      -1.5,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp171-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch18U1",
+    "area": "IT",
+    "date": "2021-02-26",
+    "num_generations": 37,
+    "deepsim_max_rate": 58.8,
+    "biggan_max_rate": 71.1,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      7.0,
+      7.0
+    ],
+    "image_pos_deg": [
+      0.5,
+      -5.0,
+      0.5,
+      -5.0
+    ]
+  },
+  {
+    "id": "Exp172-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch8U1",
+    "area": "IT",
+    "date": "2021-03-12",
+    "num_generations": 32,
+    "deepsim_max_rate": 58.6,
+    "biggan_max_rate": 22.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      6.0,
+      6.0
+    ],
+    "image_pos_deg": [
+      -5.0,
+      -2.5,
+      -5.0,
+      -2.5
+    ]
+  },
+  {
+    "id": "Exp173-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch5U1",
+    "area": "IT",
+    "date": "2021-03-12",
+    "num_generations": 31,
+    "deepsim_max_rate": 10.4,
+    "biggan_max_rate": 30.7,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -0.5,
+      -3.0,
+      -0.5,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp174-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch9U1",
+    "area": "IT",
+    "date": "2021-04-01",
+    "num_generations": 40,
+    "deepsim_max_rate": 76.6,
+    "biggan_max_rate": 84.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      -1.5,
+      -1.5,
+      -1.5
+    ]
+  },
+  {
+    "id": "Exp175-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch7U1",
+    "area": "IT",
+    "date": "2021-04-08",
+    "num_generations": 35,
+    "deepsim_max_rate": 103.4,
+    "biggan_max_rate": 154.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.3,
+      -1.4,
+      -1.3,
+      -1.4
+    ]
+  },
+  {
+    "id": "Exp176-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch2U1",
+    "area": "IT",
+    "date": "2021-04-08",
+    "num_generations": 30,
+    "deepsim_max_rate": 39.0,
+    "biggan_max_rate": 59.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -1.4,
+      -4.0,
+      -1.4,
+      -4.0
+    ]
+  },
+  {
+    "id": "Exp177-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch26U1",
+    "area": "IT",
+    "date": "2021-04-15",
+    "num_generations": 35,
+    "deepsim_max_rate": 15.5,
+    "biggan_max_rate": 15.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -0.9,
+      -4.5,
+      -0.9,
+      -4.5
+    ]
+  },
+  {
+    "id": "Exp178-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch20U1",
+    "area": "IT",
+    "date": "2021-04-16",
+    "num_generations": 35,
+    "deepsim_max_rate": 65.0,
+    "biggan_max_rate": 86.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      7.0,
+      7.0
+    ],
+    "image_pos_deg": [
+      -3.0,
+      -4.0,
+      -3.0,
+      -4.0
+    ]
+  },
+  {
+    "id": "Exp179-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch30U1",
+    "area": "IT",
+    "date": "2021-05-12",
+    "num_generations": 31,
+    "deepsim_max_rate": 57.7,
+    "biggan_max_rate": 70.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -5.3,
+      -0.9,
+      -5.3,
+      -0.9
+    ]
+  },
+  {
+    "id": "Exp180-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch29U1",
+    "area": "IT",
+    "date": "2021-05-14",
+    "num_generations": 32,
+    "deepsim_max_rate": 130.9,
+    "biggan_max_rate": 162.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      5.0,
+      5.0
+    ],
+    "image_pos_deg": [
+      -0.3,
+      -2.0,
+      -0.3,
+      -2.0
+    ]
+  },
+  {
+    "id": "Exp181-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch22U1",
+    "area": "IT",
+    "date": "2021-06-02",
+    "num_generations": 27,
+    "deepsim_max_rate": 114.8,
+    "biggan_max_rate": 71.6,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      6.0,
+      6.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      -3.0,
+      0.0,
+      -3.0
+    ]
+  },
+  {
+    "id": "Exp184-Beto",
+    "animal": "Beto",
+    "unit": "Ch17U1",
+    "area": "IT",
+    "date": "2020-07-24",
+    "num_generations": 47,
+    "deepsim_max_rate": 262.1,
+    "biggan_max_rate": 270.9,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      3.0,
+      3.0
+    ],
+    "image_pos_deg": [
+      -1.0,
+      0.0,
+      -1.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp185-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch5U1",
+    "area": "IT",
+    "date": "2020-07-24",
+    "num_generations": 33,
+    "deepsim_max_rate": 4.1,
+    "biggan_max_rate": 8.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      -3.8,
+      -1.5,
+      -3.8
+    ]
+  },
+  {
+    "id": "Exp186-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch5U1",
+    "area": "IT",
+    "date": "2020-07-24",
+    "num_generations": 32,
+    "deepsim_max_rate": 3.5,
+    "biggan_max_rate": 4.8,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      4.0,
+      4.0
+    ],
+    "image_pos_deg": [
+      -1.5,
+      -3.8,
+      -1.5,
+      -3.8
+    ]
+  },
+  {
+    "id": "Exp187-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch34U1",
+    "area": "V1",
+    "date": "2020-09-28",
+    "num_generations": 21,
+    "deepsim_max_rate": 279.0,
+    "biggan_max_rate": 213.0,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp188-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch48U1",
+    "area": "V1",
+    "date": "2020-09-28",
+    "num_generations": 22,
+    "deepsim_max_rate": 287.4,
+    "biggan_max_rate": 215.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp189-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch38U1",
+    "area": "V1",
+    "date": "2020-09-28",
+    "num_generations": 22,
+    "deepsim_max_rate": 263.4,
+    "biggan_max_rate": 237.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "Exp190-Alfa",
+    "animal": "Alfa",
+    "unit": "Ch45U1",
+    "area": "V1",
+    "date": "2020-09-28",
+    "num_generations": 19,
+    "deepsim_max_rate": 342.1,
+    "biggan_max_rate": 320.3,
+    "tags": [],
+    "thread0_space": "fc6",
+    "thread1_space": "BigGAN_class",
+    "image_size_deg": [
+      2.0,
+      2.0
+    ],
+    "image_pos_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+]
