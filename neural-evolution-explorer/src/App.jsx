@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid,
   ResponsiveContainer, ComposedChart, Area, Tooltip
@@ -224,7 +224,20 @@ function MethodImage({ src, rate, gen }) {
 }
 
 
-function PSTHChart({ psth, gen, label, color, showIndividualTrials = true, allGenerationsMeanRates = null }) {
+function collectPsthValues(psth, showTrials, allGenRates) {
+  const vals = [];
+  if (!psth) return vals;
+  if (psth.mean_rate) vals.push(...psth.mean_rate);
+  if (showTrials && psth.trial_rates?.length) {
+    psth.trial_rates.forEach((row) => { if (row) vals.push(...row); });
+  }
+  if (allGenRates?.length) {
+    allGenRates.forEach((arr) => { if (arr) vals.push(...arr); });
+  }
+  return vals;
+}
+
+function PSTHChart({ psth, gen, label, color, showIndividualTrials = true, allGenerationsMeanRates = null, yDomain = null }) {
   if (!psth) return null;
 
   const chartData = psth.time_ms.map((t, i) => {
@@ -260,6 +273,7 @@ function PSTHChart({ psth, gen, label, color, showIndividualTrials = true, allGe
           />
           <YAxis
             stroke="#444" tick={{ fontSize: 10, fill: "#555" }}
+            domain={yDomain ?? ["auto", "auto"]}
             label={{ value: "PSTH (Hz)", angle: -90, position: "insideLeft", offset: 10, fontSize: 10, fill: "#555" }}
           />
           {numGenTraces > 0 && Array.from({ length: numGenTraces }, (_, i) => (
@@ -423,6 +437,7 @@ export default function App() {
   const [playSpeed, setPlaySpeed] = useState(500);
   const [showIndividualTrials, setShowIndividualTrials] = useState(false);
   const [showAllGenerationsPsth, setShowAllGenerationsPsth] = useState(true);
+  const [tiePsthYLim, setTiePsthYLim] = useState(true);
   const [filterAnimal, setFilterAnimal] = useState("");
   const [filterArea, setFilterArea] = useState("");
   const [filterChannel, setFilterChannel] = useState("");
@@ -482,6 +497,19 @@ export default function App() {
       setCurrentGen(meta.num_generations ?? 1);
     }
   }, [selectedExp, meta]);
+
+  // Shared Y domain for both PSTH charts when tiePsthYLim is on
+  const psthYDomain = useMemo(() => {
+    if (!tiePsthYLim) return null;
+    const dsVals = collectPsthValues(genData?.deepsim?.psth, showIndividualTrials, showAllGenerationsPsth ? allGenPsth.deepsim : null);
+    const bgVals = collectPsthValues(genData?.biggan?.psth, showIndividualTrials, showAllGenerationsPsth ? allGenPsth.biggan : null);
+    const allVals = [...dsVals, ...bgVals].filter((v) => typeof v === "number" && !Number.isNaN(v));
+    if (allVals.length === 0) return null;
+    const lo = Math.min(0, ...allVals);
+    const hi = Math.max(...allVals);
+    const pad = Math.max(10, (hi - lo) * 0.05);
+    return [Math.floor(lo - pad), Math.ceil(hi + pad)];
+  }, [tiePsthYLim, genData?.deepsim?.psth, genData?.biggan?.psth, showIndividualTrials, showAllGenerationsPsth, allGenPsth.deepsim, allGenPsth.biggan]);
 
   // Preload upcoming generations for smooth playback
   usePreloader(selectedExp, currentGen, maxGen, cache);
@@ -738,6 +766,14 @@ export default function App() {
                   />
                   Show all generations (PSTH as gray)
                 </label>
+                <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontFamily: MONO, fontSize: 12, color: "#888" }}>
+                  <input
+                    type="checkbox"
+                    checked={tiePsthYLim}
+                    onChange={(e) => setTiePsthYLim(e.target.checked)}
+                  />
+                  Tie PSTH Y limits
+                </label>
                 {showAllGenerationsPsth && allGenPsth.loading && (
                   <span style={{ fontFamily: MONO, fontSize: 11, color: "#60a5fa" }}>loading…</span>
                 )}
@@ -763,6 +799,7 @@ export default function App() {
                     color="#60a5fa"
                     showIndividualTrials={showIndividualTrials}
                     allGenerationsMeanRates={showAllGenerationsPsth ? allGenPsth.deepsim : null}
+                    yDomain={psthYDomain}
                   />
                 </div>
 
@@ -784,6 +821,7 @@ export default function App() {
                     color="#f87171"
                     showIndividualTrials={showIndividualTrials}
                     allGenerationsMeanRates={showAllGenerationsPsth ? allGenPsth.biggan : null}
+                    yDomain={psthYDomain}
                   />
                 </div>
               </div>
