@@ -49,7 +49,7 @@ from neural_data_lib import (
 )
 
 # PSTH time axis: assume 4 ms per bin (match generate_pseudo_data.py)
-PSTH_BIN_MS = 4
+PSTH_BIN_MS = 1
 
 
 def load_bfestats(pkl_dir: str | None):
