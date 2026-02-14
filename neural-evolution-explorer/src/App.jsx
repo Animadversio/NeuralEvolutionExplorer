@@ -429,8 +429,8 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens, showRefEvolTraj = true
   return (
     <div>
       <SectionLabel>CMAES Evolution Trajectory</SectionLabel>
-      <div style={{ position: "relative", width: "100%", height: 240 }}>
-        <ResponsiveContainer width="100%" height={240}>
+      <div style={{ position: "relative", width: "100%", height: 250 }}>
+        <ResponsiveContainer width="100%" height={230}>
           <EvolTrajChartInner
             chartData={chartData}
             hasRef={hasRef}
