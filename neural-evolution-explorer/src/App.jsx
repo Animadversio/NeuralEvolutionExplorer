@@ -608,7 +608,7 @@ export default function App() {
     return m ? m[0] : "";
   };
 
-  // Build display string for exp (e.g. "#003-Beto-Ch42U1") — used for sidebar and regex filter
+  // Build display string for exp (e.g. "#003-B-Ch42U1") — used for sidebar and regex filter
   const getExpDisplayStr = (exp) =>
     `#${String(exp.id.match(/Exp(\d+)/)?.[1] ?? "").padStart(3, "0")}-${exp.animal}-${exp.unit.replace("Unit ", "")}`;
 
@@ -871,7 +871,7 @@ export default function App() {
               type="text"
               value={filterRegex}
               onChange={(e) => setFilterRegex(e.target.value)}
-              placeholder="#003-Beto-Ch42U1"
+              placeholder="#003-B-Ch42U1"
               style={{
                 width: "100%", boxSizing: "border-box", padding: "6px 8px", fontFamily: MONO, fontSize: 11,
                 background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
@@ -962,7 +962,7 @@ export default function App() {
                   type="text"
                   value={filterRegex}
                   onChange={(e) => setFilterRegex(e.target.value)}
-                  placeholder="#003-Beto-Ch42"
+                  placeholder="#003-B-Ch42"
                   style={{
                     flex: 1, minWidth: 0, boxSizing: "border-box", padding: "6px 8px", fontFamily: MONO, fontSize: 11,
                     background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
