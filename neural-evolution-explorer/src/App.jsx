@@ -172,6 +172,25 @@ function useAllGenerationsPsth(expId, maxGen, enabled) {
   return allGenPsth;
 }
 
+const NARROW_BREAKPOINT_PX = 768;
+
+/** Match (max-width: NARROW_BREAKPOINT_PX) for narrow / phone layout */
+function useNarrowScreen() {
+  const [narrow, setNarrow] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${NARROW_BREAKPOINT_PX}px)`);
+    const update = () => setNarrow(mq.matches);
+    update(); // set immediately on mount (reliable in device mode)
+    mq.addEventListener("change", update);
+    window.addEventListener("resize", update); // fallback when device toolbar doesn't fire change
+    return () => {
+      mq.removeEventListener("change", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+  return narrow;
+}
+
 // =============================================================================
 // COMPONENTS
 // =============================================================================
@@ -541,6 +560,7 @@ function PlaybackControls({
 
 export default function App() {
   const { experiments, loading: loadingList, error } = useExperiments();
+  const isNarrow = useNarrowScreen();
   const [selectedExp, setSelectedExp] = useState(null);
   const [currentGen, setCurrentGen] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -719,13 +739,13 @@ export default function App() {
       {/* Header */}
       <header style={{
         flexShrink: 0,
-        borderBottom: "1px solid #1a1d2e", padding: "16px 24px",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
+        borderBottom: "1px solid #1a1d2e", padding: isNarrow ? "12px 16px" : "16px 24px",
+        display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12,
         background: "#0e1019",
       }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
           <h1 style={{
-            margin: 0, fontSize: 20, fontWeight: 700,
+            margin: 0, fontSize: isNarrow ? 18 : 20, fontWeight: 700,
             letterSpacing: "-0.02em", color: "#f0f2f8", fontFamily: DISPLAY,
           }}>
             Neural Evolution Explorer
@@ -737,15 +757,33 @@ export default function App() {
             DeepSim × BigGAN
           </span>
         </div>
-        <div style={{ fontFamily: MONO, fontSize: 11, color: "#444" }}>
-          {filteredExperiments.length === experiments.length
-            ? `${experiments.length} experiment${experiments.length !== 1 ? "s" : ""}`
-            : `${filteredExperiments.length} / ${experiments.length} experiments`}
+        <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+          {isNarrow && filteredExperiments.length > 0 && (
+            <select
+              value={selectedExp || ""}
+              onChange={(e) => handleExpChange(e.target.value)}
+              style={{
+                padding: "8px 12px", fontFamily: MONO, fontSize: 12,
+                background: "#161929", border: "1px solid #1a1d2e", borderRadius: 6, color: "#c0c4d0",
+                cursor: "pointer", maxWidth: "min(280px, 70vw)",
+              }}
+            >
+              {filteredExperiments.map((exp) => (
+                <option key={exp.id} value={exp.id}>{getExpDisplayStr(exp)}</option>
+              ))}
+            </select>
+          )}
+          <span style={{ fontFamily: MONO, fontSize: 11, color: "#444" }}>
+            {filteredExperiments.length === experiments.length
+              ? `${experiments.length} experiment${experiments.length !== 1 ? "s" : ""}`
+              : `${filteredExperiments.length} / ${experiments.length} experiments`}
+          </span>
         </div>
       </header>
 
       <div style={{ display: "flex", flex: 1, minHeight: 0, overflow: "hidden" }}>
-        {/* Sidebar — scrolls experiment list only */}
+        {/* Sidebar — hidden on narrow screens; experiment picker moves to header */}
+        {!isNarrow && (
         <aside style={{
           width: 260, borderRight: "1px solid #1a1d2e",
           padding: "16px 0", background: "#0b0d14",
@@ -849,9 +887,67 @@ export default function App() {
             );
           })}
         </aside>
+        )}
 
         {/* Main content — scrolls content area only */}
-        <main style={{ flex: 1, minHeight: 0, padding: 24, overflow: "auto" }}>
+        <main style={{ flex: 1, minHeight: 0, padding: isNarrow ? 16 : 24, overflow: "auto" }}>
+          {/* Narrow view: compact filters (Animal, Area, RE filter) */}
+          {isNarrow && (
+            <div style={{
+              display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center",
+              marginBottom: 16, paddingBottom: 12, borderBottom: "1px solid #1a1d2e",
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{ fontFamily: MONO, fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: "#555" }}>Animal</span>
+                <select
+                  value={filterAnimal}
+                  onChange={(e) => setFilterAnimal(e.target.value)}
+                  style={{
+                    padding: "6px 8px", fontFamily: MONO, fontSize: 11,
+                    background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
+                    cursor: "pointer", minWidth: 0,
+                  }}
+                >
+                  <option value="">All</option>
+                  {filterOptions.animals.map((a) => (
+                    <option key={a} value={a}>{a}</option>
+                  ))}
+                </select>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{ fontFamily: MONO, fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: "#555" }}>Area</span>
+                <select
+                  value={filterArea}
+                  onChange={(e) => setFilterArea(e.target.value)}
+                  style={{
+                    padding: "6px 8px", fontFamily: MONO, fontSize: 11,
+                    background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
+                    cursor: "pointer", minWidth: 0,
+                  }}
+                >
+                  <option value="">All</option>
+                  {filterOptions.areas.map((a) => (
+                    <option key={a} value={a}>{a}</option>
+                  ))}
+                </select>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 6, flex: "1 1 140px", minWidth: 0 }}>
+                <span style={{ fontFamily: MONO, fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: "#555", flexShrink: 0 }}>RE filter</span>
+                <input
+                  type="text"
+                  value={filterRegex}
+                  onChange={(e) => setFilterRegex(e.target.value)}
+                  placeholder="#003-Beto-Ch42"
+                  style={{
+                    flex: 1, minWidth: 0, boxSizing: "border-box", padding: "6px 8px", fontFamily: MONO, fontSize: 11,
+                    background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
+                    outline: "none",
+                  }}
+                />
+              </div>
+            </div>
+          )}
+
           {meta && (
             <>
               {/* Experiment info bar */}
@@ -938,12 +1034,23 @@ export default function App() {
                 )}
               </div>
 
-              {/* Two-column: DeepSim | BigGAN */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 24 }}>
+              {/* Two-column on wide; stacked on narrow */}
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: isNarrow ? "1fr" : "1fr 1fr",
+                gap: 24,
+                marginBottom: 24,
+              }}>
                 {/* DeepSim */}
                 <div style={cardStyle}>
                   <div style={{ ...cardTitleStyle, color: "#60a5fa" }}>Pattern (DeepSim)</div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16, minWidth: 0 }}>
+                  <div style={{
+                    display: "grid",
+                    gridTemplateColumns: isNarrow ? "1fr" : "1fr 1fr",
+                    gap: 16,
+                    marginBottom: 16,
+                    minWidth: 0,
+                  }}>
                     <div style={{ minWidth: 0 }}>
                       <MethodImage
                         src={genData?.deepsim?.imageSrc}
@@ -970,7 +1077,13 @@ export default function App() {
                 {/* BigGAN */}
                 <div style={cardStyle}>
                   <div style={{ ...cardTitleStyle, color: "#f87171" }}>Object (BigGAN)</div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16, minWidth: 0 }}>
+                  <div style={{
+                    display: "grid",
+                    gridTemplateColumns: isNarrow ? "1fr" : "1fr 1fr",
+                    gap: 16,
+                    marginBottom: 16,
+                    minWidth: 0,
+                  }}>
                     <div style={{ minWidth: 0 }}>
                       <MethodImage
                         src={genData?.biggan?.imageSrc}
