@@ -173,6 +173,9 @@ function useAllGenerationsPsth(expId, maxGen, enabled) {
 }
 
 const NARROW_BREAKPOINT_PX = 768;
+/** Short viewport (e.g. phone landscape 915×412): stack cards and image-on-top-of-chart */
+const SHORT_VIEWPORT_MAX_HEIGHT_PX = 500;
+const EVOL_TRAJ_MIN_WIDTH_PX = 240;
 
 /** Match (max-width: NARROW_BREAKPOINT_PX) for narrow / phone layout */
 function useNarrowScreen() {
@@ -180,15 +183,32 @@ function useNarrowScreen() {
   useEffect(() => {
     const mq = window.matchMedia(`(max-width: ${NARROW_BREAKPOINT_PX}px)`);
     const update = () => setNarrow(mq.matches);
-    update(); // set immediately on mount (reliable in device mode)
+    update();
     mq.addEventListener("change", update);
-    window.addEventListener("resize", update); // fallback when device toolbar doesn't fire change
+    window.addEventListener("resize", update);
     return () => {
       mq.removeEventListener("change", update);
       window.removeEventListener("resize", update);
     };
   }, []);
   return narrow;
+}
+
+/** Match (max-height: SHORT_VIEWPORT_MAX_HEIGHT_PX) for landscape phone — use single-column card layout */
+function useShortViewport() {
+  const [short, setShort] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-height: ${SHORT_VIEWPORT_MAX_HEIGHT_PX}px)`);
+    const update = () => setShort(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    window.addEventListener("resize", update);
+    return () => {
+      mq.removeEventListener("change", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+  return short;
 }
 
 // =============================================================================
@@ -561,6 +581,9 @@ function PlaybackControls({
 export default function App() {
   const { experiments, loading: loadingList, error } = useExperiments();
   const isNarrow = useNarrowScreen();
+  const isShortViewport = useShortViewport();
+  /** Single-column layout when narrow (phone portrait) or short (phone landscape 915×412) */
+  const isCompactLayout = isNarrow || isShortViewport;
   const [selectedExp, setSelectedExp] = useState(null);
   const [currentGen, setCurrentGen] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -1034,7 +1057,7 @@ export default function App() {
                 )}
               </div>
 
-              {/* Two-column on wide; stacked on narrow */}
+              {/* Two cards side-by-side unless narrow (portrait); stacked only when narrow */}
               <div style={{
                 display: "grid",
                 gridTemplateColumns: isNarrow ? "1fr" : "1fr 1fr",
@@ -1046,7 +1069,7 @@ export default function App() {
                   <div style={{ ...cardTitleStyle, color: "#60a5fa" }}>Pattern (DeepSim)</div>
                   <div style={{
                     display: "grid",
-                    gridTemplateColumns: isNarrow ? "1fr" : "1fr 1fr",
+                    gridTemplateColumns: isCompactLayout ? "1fr" : "1fr 1fr",
                     gap: 16,
                     marginBottom: 16,
                     minWidth: 0,
@@ -1059,7 +1082,10 @@ export default function App() {
                         gen={currentGen}
                       />
                     </div>
-                    <div style={{ minWidth: 0, width: "100%" }}>
+                    <div style={{
+                      minWidth: isCompactLayout ? 0 : EVOL_TRAJ_MIN_WIDTH_PX,
+                      width: "100%",
+                    }}>
                       <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} showRefEvolTraj={showRefEvolTraj} />
                     </div>
                   </div>
@@ -1079,7 +1105,7 @@ export default function App() {
                   <div style={{ ...cardTitleStyle, color: "#f87171" }}>Object (BigGAN)</div>
                   <div style={{
                     display: "grid",
-                    gridTemplateColumns: isNarrow ? "1fr" : "1fr 1fr",
+                    gridTemplateColumns: isCompactLayout ? "1fr" : "1fr 1fr",
                     gap: 16,
                     marginBottom: 16,
                     minWidth: 0,
@@ -1092,7 +1118,10 @@ export default function App() {
                         gen={currentGen}
                       />
                     </div>
-                    <div style={{ minWidth: 0, width: "100%" }}>
+                    <div style={{
+                      minWidth: isCompactLayout ? 0 : EVOL_TRAJ_MIN_WIDTH_PX,
+                      width: "100%",
+                    }}>
                       <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} showRefEvolTraj={showRefEvolTraj} />
                     </div>
                   </div>
