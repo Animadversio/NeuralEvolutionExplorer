@@ -312,6 +312,59 @@ function PSTHChart({ psth, gen, label, color, showIndividualTrials = true, allGe
 }
 
 
+// Set to true to show debug panel for ref lines (data + render check)
+const REF_LINES_DEBUG = true;
+
+/** Receives width/height from ResponsiveContainer; ref Lines are direct children (no Fragment) so all 4 lines can render in one chart */
+function EvolTrajChartInner({ width, height, chartData, hasRef, yDomain, totalGens }) {
+  if (width == null || height == null || width <= 0 || height <= 0) return null;
+  const margin = { top: 4, right: 8, bottom: 20, left: 4 };
+  return (
+    <div style={{ position: "relative", width, height }}>
+      <ComposedChart width={width} height={height} data={chartData} margin={margin}>
+        <CartesianGrid stroke="#1a1d2e" strokeDasharray="3 3" />
+        <XAxis
+          dataKey="gen" stroke="#444" tick={{ fontSize: 10, fill: "#555" }}
+          domain={[1, totalGens || 20]} type="number"
+          label={{ value: "Generations", position: "insideBottom", offset: -12, fontSize: 10, fill: "#555" }}
+        />
+        <YAxis
+          domain={yDomain}
+          stroke="#444" tick={{ fontSize: 10, fill: "#555" }}
+          label={{ value: "Response fr (Hz)", angle: -90, position: "insideLeft", offset: 10, fontSize: 10, fill: "#555" }}
+        />
+        <Tooltip
+          contentStyle={{
+            background: "#141620", border: "1px solid #2a2d40",
+            borderRadius: 6, fontSize: 11, fontFamily: MONO,
+          }}
+          labelStyle={{ color: "#888" }}
+          labelFormatter={(v) => `Gen ${v}`}
+          formatter={(value, name) => {
+            if (name === "deepsim") return [value, "DeepSim (Hz)"];
+            if (name === "biggan") return [value, "BigGAN (Hz)"];
+            if (name === "ref_deepsim") return [value, "Ref DeepSim (Hz)"];
+            if (name === "ref_biggan") return [value, "Ref BigGAN (Hz)"];
+            return [value, name];
+          }}
+        />
+        <Area dataKey="dsBand" fill="rgba(96,165,250,0.12)" stroke="none" isAnimationActive={false} />
+        <Area dataKey="bgBand" fill="rgba(248,113,113,0.12)" stroke="none" isAnimationActive={false} />
+        {hasRef && (
+          <>
+            <Area dataKey="ref_dsBand" fill="rgba(96,165,250,0.06)" stroke="none" isAnimationActive={false} />
+            <Area dataKey="ref_bgBand" fill="rgba(248,113,113,0.06)" stroke="none" isAnimationActive={false} />
+          </>
+        )}
+        <Line dataKey="deepsim" stroke="#60a5fa" strokeWidth={2} dot={false} isAnimationActive={false} />
+        <Line dataKey="biggan" stroke="#f87171" strokeWidth={2} dot={false} isAnimationActive={false} />
+        {hasRef && <Line dataKey="ref_deepsim" stroke="#22d3ee" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} />}
+        {hasRef && <Line dataKey="ref_biggan" stroke="#a78bfa" strokeWidth={2} strokeDasharray="6 4" dot={false} isAnimationActive={false} />}
+      </ComposedChart>
+    </div>
+  );
+}
+
 function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
   if (!evolTraj || evolTraj.length === 0) return null;
 
@@ -334,62 +387,84 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
     return out;
   });
 
+  // Explicit Y domain so ref_deepsim/ref_biggan are never clipped (Recharts auto domain may omit some series)
+  const yDomain = useMemo(() => {
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (const d of chartData) {
+      for (const key of ["deepsim", "biggan", "ref_deepsim", "ref_biggan"]) {
+        const v = d[key];
+        if (typeof v === "number" && Number.isFinite(v)) {
+          lo = Math.min(lo, v);
+          hi = Math.max(hi, v);
+        }
+      }
+      for (const key of ["dsBand", "bgBand", "ref_dsBand", "ref_bgBand"]) {
+        const arr = d[key];
+        if (Array.isArray(arr)) {
+          for (const v of arr) {
+            if (typeof v === "number" && Number.isFinite(v)) {
+              lo = Math.min(lo, v);
+              hi = Math.max(hi, v);
+            }
+          }
+        }
+      }
+    }
+    if (lo === Infinity) return undefined;
+    const pad = (hi - lo) * 0.05 || 1;
+    return [Math.max(0, lo - pad), hi + pad];
+  }, [chartData]);
+
+  // Debug: log and compute ref stats so we can tell if issue is data vs UI
+  const refDebug = useMemo(() => {
+    if (!REF_LINES_DEBUG || !hasRef || chartData.length === 0) return null;
+    const withRefDs = chartData.filter((d) => d.ref_deepsim != null);
+    const withRefBg = chartData.filter((d) => d.ref_biggan != null);
+    const sample = chartData.slice(0, 3).map((d) => ({ gen: d.gen, ref_deepsim: d.ref_deepsim, ref_biggan: d.ref_biggan }));
+    const info = {
+      hasRef,
+      chartDataLen: chartData.length,
+      pointsWithRefDeepsim: withRefDs.length,
+      pointsWithRefBiggan: withRefBg.length,
+      yDomain,
+      sample,
+    };
+    console.log("[EvolTrajChart ref lines debug]", info);
+    return info;
+  }, [hasRef, chartData, yDomain]);
+
   return (
     <div>
       <SectionLabel>CMAES Evolution Trajectory</SectionLabel>
-      <ResponsiveContainer width="100%" height={180}>
-        <ComposedChart data={chartData} margin={{ top: 4, right: 8, bottom: 20, left: 4 }}>
-          <CartesianGrid stroke="#1a1d2e" strokeDasharray="3 3" />
-          <XAxis
-            dataKey="gen" stroke="#444" tick={{ fontSize: 10, fill: "#555" }}
-            domain={[1, totalGens || 20]} type="number"
-            label={{ value: "Generations", position: "insideBottom", offset: -12, fontSize: 10, fill: "#555" }}
+      {REF_LINES_DEBUG && hasRef && refDebug && (
+        <div style={{
+          fontSize: 10, fontFamily: MONO, color: "#888", marginBottom: 6,
+          padding: "6px 8px", background: "#0d0f14", borderRadius: 4, border: "1px solid #1a1d2e",
+        }}>
+          [DEBUG] hasRef={String(hasRef)} | chartData points={refDebug.chartDataLen} | ref_deepsim present in {refDebug.pointsWithRefDeepsim} | ref_biggan in {refDebug.pointsWithRefBiggan} | yDomain={refDebug.yDomain ? JSON.stringify(refDebug.yDomain) : "none"} | sample: {JSON.stringify(refDebug.sample)}
+        </div>
+      )}
+      <div style={{ position: "relative", width: "100%", height: 180 }}>
+        <ResponsiveContainer width="100%" height={180}>
+          {/* Single child so Recharts passes same width/height to both charts — fixes overlay x-axis misalignment */}
+          <EvolTrajChartInner
+            chartData={chartData}
+            hasRef={hasRef}
+            yDomain={yDomain}
+            totalGens={totalGens}
           />
-          <YAxis
-            stroke="#444" tick={{ fontSize: 10, fill: "#555" }}
-            label={{ value: "Response fr (Hz)", angle: -90, position: "insideLeft", offset: 10, fontSize: 10, fill: "#555" }}
-          />
-          <Tooltip
-            contentStyle={{
-              background: "#141620", border: "1px solid #2a2d40",
-              borderRadius: 6, fontSize: 11, fontFamily: MONO,
-            }}
-            labelStyle={{ color: "#888" }}
-            labelFormatter={(v) => `Gen ${v}`}
-            formatter={(value, name) => {
-              if (name === "deepsim") return [value, "DeepSim (Hz)"];
-              if (name === "biggan") return [value, "BigGAN (Hz)"];
-              if (name === "ref_deepsim") return [value, "Ref DeepSim (Hz)"];
-              if (name === "ref_biggan") return [value, "Ref BigGAN (Hz)"];
-              return [value, name];
-            }}
-          />
-          {/* Confidence bands */}
-          <Area dataKey="dsBand" fill="rgba(96,165,250,0.12)" stroke="none" isAnimationActive={false} />
-          <Area dataKey="bgBand" fill="rgba(248,113,113,0.12)" stroke="none" isAnimationActive={false} />
-          {/* Reference image bands (when present) */}
-          {hasRef && (
-            <>
-              <Area dataKey="ref_dsBand" fill="rgba(96,165,250,0.06)" stroke="none" isAnimationActive={false} />
-              <Area dataKey="ref_bgBand" fill="rgba(248,113,113,0.06)" stroke="none" isAnimationActive={false} />
-            </>
-          )}
-          {/* Mean lines */}
-          <Line dataKey="deepsim" stroke="#60a5fa" strokeWidth={2} dot={false} isAnimationActive={false} />
-          <Line dataKey="biggan" stroke="#f87171" strokeWidth={2} dot={false} isAnimationActive={false} />
-          {/* Reference image lines (dashed) */}
-          {hasRef && (
-            <>
-              <Line dataKey="ref_deepsim" stroke="#60a5fa" strokeWidth={1.5} strokeDasharray="4 4" dot={false} isAnimationActive={false} />
-              <Line dataKey="ref_biggan" stroke="#f87171" strokeWidth={1.5} strokeDasharray="4 4" dot={false} isAnimationActive={false} />
-            </>
-          )}
-        </ComposedChart>
-      </ResponsiveContainer>
+        </ResponsiveContainer>
+      </div>
       <div style={{ display: "flex", gap: 16, justifyContent: "center", marginTop: -4, flexWrap: "wrap" }}>
         <span style={{ fontSize: 11, color: "#60a5fa", fontFamily: MONO }}>● DeepSim</span>
         <span style={{ fontSize: 11, color: "#f87171", fontFamily: MONO }}>● BigGAN</span>
-        {hasRef && <span style={{ fontSize: 11, color: "#888", fontFamily: MONO }}>— — Reference images</span>}
+        {hasRef && (
+          <>
+            <span style={{ fontSize: 11, color: "#22d3ee", fontFamily: MONO }}>— — Ref DeepSim</span>
+            <span style={{ fontSize: 11, color: "#a78bfa", fontFamily: MONO }}>— — Ref BigGAN</span>
+          </>
+        )}
       </div>
     </div>
   );
