@@ -25,6 +25,9 @@ Usage:
 
   # Limit to first N experiments:
   python scripts/export_neural_data.py --output ./public/data --experiments 5
+
+  # Skip individual trial responses in PSTH JSON (saves storage):
+  python scripts/export_neural_data.py --output ./public/data --no-trial-rates
 """
 
 from __future__ import annotations
@@ -140,6 +143,7 @@ def export_experiment(
     output_dir: Path,
     exp_id: str,
     evol_meta: dict | None = None,
+    include_trial_rates: bool = True,
 ) -> dict:
     """
     Write one experiment's folder: meta.json, evol_traj.json, summary_stats.json, gen_XX/deepsim_psth.json, biggan_psth.json.
@@ -195,7 +199,8 @@ def export_experiment(
             ("deepsim", mean0, sem0, ev_ds, trial_rates0),
             ("biggan", mean1, sem1, ev_bg, trial_rates1),
         ]:
-            psth_data = build_psth_json(mean_arr, sem_arr, ev_rate, trials)
+            trials_out = trials if include_trial_rates else None
+            psth_data = build_psth_json(mean_arr, sem_arr, ev_rate, trials_out)
             with open(gen_dir / f"{method}_psth.json", "w") as f:
                 json.dump(psth_data, f)
 
@@ -251,6 +256,11 @@ def main():
         default=None,
         help="Max number of experiments to export (default: all)",
     )
+    parser.add_argument(
+        "--no-trial-rates",
+        action="store_true",
+        help="Do not export individual trial responses in PSTH JSON (saves storage; mean/sem still exported)",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output)
@@ -299,6 +309,7 @@ def main():
             output_dir,
             exp_id,
             evol_meta=evol_meta,
+            include_trial_rates=not args.no_trial_rates,
         )
         all_meta.append(meta)
         print(f"  Exported {exp_id} ({meta_row['visual_area']}, {meta_row['blockN']} blocks)")
