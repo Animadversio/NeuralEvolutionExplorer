@@ -7,7 +7,7 @@ import {
 // =============================================================================
 // CONFIG — adjust base path depending on your setup
 // =============================================================================
-const DATA_BASE = "/data"; // points to public/data/
+const DATA_BASE = `${import.meta.env.BASE_URL}data`; // points to public/data/; respects base path on GitHub Pages
 // Prefer webp for max-activating images (smaller size); fallback to png for legacy data
 const IMG_EXT = "webp";
 const IMG_EXT_FALLBACK = "png";
