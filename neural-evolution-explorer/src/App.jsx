@@ -8,6 +8,9 @@ import {
 // CONFIG — adjust base path depending on your setup
 // =============================================================================
 const DATA_BASE = "/data"; // points to public/data/
+// Prefer webp for max-activating images (smaller size); fallback to png for legacy data
+const IMG_EXT = "webp";
+const IMG_EXT_FALLBACK = "png";
 
 // =============================================================================
 // DATA LOADING HOOKS
@@ -89,8 +92,8 @@ function useGenerationData(expId, genNum, cache) {
       .then(([dsPsth, bgPsth]) => {
         if (cancelled) return;
         const data = {
-          deepsim: { psth: dsPsth, imageSrc: `${genDir}/deepsim_img.png` },
-          biggan: { psth: bgPsth, imageSrc: `${genDir}/biggan_img.png` },
+          deepsim: { psth: dsPsth, imageSrc: `${genDir}/deepsim_img.${IMG_EXT}`, imageSrcFallback: `${genDir}/deepsim_img.${IMG_EXT_FALLBACK}` },
+          biggan: { psth: bgPsth, imageSrc: `${genDir}/biggan_img.${IMG_EXT}`, imageSrcFallback: `${genDir}/biggan_img.${IMG_EXT_FALLBACK}` },
         };
         cache.current[cacheKey] = data;
         setGenData(data);
@@ -118,13 +121,13 @@ function usePreloader(expId, currentGen, maxGen, cache) {
         fetch(`${genDir}/biggan_psth.json`).then((r) => r.json()),
       ]).then(([ds, bg]) => {
         cache.current[key] = {
-          deepsim: { psth: ds, imageSrc: `${genDir}/deepsim_img.png` },
-          biggan: { psth: bg, imageSrc: `${genDir}/biggan_img.png` },
+          deepsim: { psth: ds, imageSrc: `${genDir}/deepsim_img.${IMG_EXT}`, imageSrcFallback: `${genDir}/deepsim_img.${IMG_EXT_FALLBACK}` },
+          biggan: { psth: bg, imageSrc: `${genDir}/biggan_img.${IMG_EXT}`, imageSrcFallback: `${genDir}/biggan_img.${IMG_EXT_FALLBACK}` },
         };
       }).catch(() => {});
-      // Preload images into browser cache
-      new Image().src = `${genDir}/deepsim_img.png`;
-      new Image().src = `${genDir}/biggan_img.png`;
+      // Preload images into browser cache (prefer webp)
+      new Image().src = `${genDir}/deepsim_img.${IMG_EXT}`;
+      new Image().src = `${genDir}/biggan_img.${IMG_EXT}`;
     }
   }, [expId, currentGen, maxGen, cache]);
 }
@@ -181,9 +184,26 @@ function SectionLabel({ children }) {
   );
 }
 
-function MethodImage({ src, rate, gen }) {
+function MethodImage({ src, rate, gen, fallbackSrc }) {
   const [imgError, setImgError] = useState(false);
-  useEffect(() => setImgError(false), [src]);
+  const [triedFallback, setTriedFallback] = useState(false);
+  const [currentSrc, setCurrentSrc] = useState(src);
+  useEffect(() => {
+    setImgError(false);
+    setTriedFallback(false);
+    setCurrentSrc(src);
+  }, [src]);
+
+  const handleError = () => {
+    if (fallbackSrc && !triedFallback) {
+      setTriedFallback(true);
+      setCurrentSrc(fallbackSrc);
+    } else {
+      setImgError(true);
+    }
+  };
+
+  const displaySrc = currentSrc || src;
 
   return (
     <div>
@@ -192,11 +212,11 @@ function MethodImage({ src, rate, gen }) {
         position: "relative", aspectRatio: "1",
         background: "#0a0c14", borderRadius: 6, overflow: "hidden",
       }}>
-        {src && !imgError ? (
+        {displaySrc && !imgError ? (
           <img
-            src={src}
+            src={displaySrc}
             alt={`Gen ${gen}`}
-            onError={() => setImgError(true)}
+            onError={handleError}
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         ) : (
@@ -787,6 +807,7 @@ export default function App() {
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
                     <MethodImage
                       src={genData?.deepsim?.imageSrc}
+                      fallbackSrc={genData?.deepsim?.imageSrcFallback}
                       rate={genData?.deepsim?.psth?.evoked_rate}
                       gen={currentGen}
                     />
@@ -809,6 +830,7 @@ export default function App() {
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
                     <MethodImage
                       src={genData?.biggan?.imageSrc}
+                      fallbackSrc={genData?.biggan?.imageSrcFallback}
                       rate={genData?.biggan?.psth?.evoked_rate}
                       gen={currentGen}
                     />

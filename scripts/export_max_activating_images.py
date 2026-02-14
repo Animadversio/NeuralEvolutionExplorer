@@ -21,8 +21,8 @@ Output layout (matches export_neural_data.py + frontend expectations):
   output_dir/
     {exp_id}/
       gen_01/
-        deepsim_img.png   # max-activating image for thread_0 (FC6/DeepSim)
-        biggan_img.png    # max-activating image for thread_1 (BigGAN)
+        deepsim_img.webp  # max-activating image for thread_0 (default: webp for compression)
+        biggan_img.webp   # max-activating image for thread_1 (use --format png for PNG)
       gen_02/
         ...
       ...
@@ -36,6 +36,10 @@ Usage:
 
   # Limit to first N experiments
   python scripts/export_max_activating_images.py --experiments 5
+
+  # Output format: webp (default, better compression) or png
+  python scripts/export_max_activating_images.py --format webp
+  python scripts/export_max_activating_images.py --format png
 """
 
 from __future__ import annotations
@@ -71,11 +75,19 @@ def export_images_from_bundle(
     bundle_path: Path,
     output_dir: Path,
     max_experiments: int | None = None,
+    output_format: str = "webp",
 ) -> None:
     """
     Load the bundle and write max-activating images per generation into
-    output_dir/{exp_id}/gen_{NN}/deepsim_img.png and biggan_img.png.
+    output_dir/{exp_id}/gen_{NN}/deepsim_img.{ext} and biggan_img.{ext}.
+    output_format: "webp" (default, better compression) or "png".
     """
+    ext = "webp" if output_format.lower() == "webp" else "png"
+    save_kw = {}
+    if ext == "webp":
+        save_kw = {"format": "WEBP", "quality": 85}
+    filenames = (f"deepsim_img.{ext}", f"biggan_img.{ext}")
+    thread_files = [("thread_0", filenames[0]), ("thread_1", filenames[1])]
     with open(bundle_path, "rb") as f:
         bundle = pickle.load(f)
 
@@ -93,7 +105,7 @@ def export_images_from_bundle(
         exp_id = exp_id_from_expi(Expi, animal)
         exp_dir = output_dir / exp_id
 
-        for thread_key, filename in [("thread_0", "deepsim_img.png"), ("thread_1", "biggan_img.png")]:
+        for thread_key, filename in thread_files:
             entries = data.get(thread_key, [])
             for entry in entries:
                 img = entry.get("image")
@@ -103,7 +115,7 @@ def export_images_from_bundle(
                 gen_dir = exp_dir / f"gen_{gen:02d}"
                 gen_dir.mkdir(parents=True, exist_ok=True)
                 out_path = gen_dir / filename
-                img.save(out_path)
+                img.save(out_path, **save_kw)
         print(f"  Exported {exp_id} ({len(data.get('thread_0', []))} deepsim, {len(data.get('thread_1', []))} biggan generations)")
 
     print(f"\nDone. Wrote max-activating images for {len(exp_indices)} experiments to {output_dir.resolve()}")
@@ -131,6 +143,13 @@ def main():
         default=None,
         help="Export only the first N experiments (default: all)",
     )
+    parser.add_argument(
+        "--format", "-f",
+        type=str,
+        choices=("webp", "png"),
+        default="webp",
+        help="Output image format: webp (default, better compression) or png",
+    )
     args = parser.parse_args()
 
     bundle_path = Path(args.bundle)
@@ -146,6 +165,7 @@ def main():
         bundle_path,
         output_dir,
         max_experiments=args.experiments,
+        output_format=args.format,
     )
 
 
