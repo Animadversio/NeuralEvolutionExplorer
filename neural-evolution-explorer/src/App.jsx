@@ -742,6 +742,18 @@ export default function App() {
                   { label: "Area", value: meta.area },
                   { label: "Date", value: meta.date },
                   { label: "Generations", value: meta.num_generations },
+                  ...(meta.image_size_deg != null && (meta.image_size_deg || []).length
+                    ? [{ label: "Image size", value: `${(meta.image_size_deg || [])[0]} deg` }]
+                    : []),
+                  ...(meta.image_pos_deg != null && (meta.image_pos_deg || []).length >= 2
+                    ? [{ label: "Image pos", value: `(${(meta.image_pos_deg || []).slice(0, 2).join(", ")}) deg` }]
+                    : []),
+                  ...(meta.thread0_space != null
+                    ? [{ label: "Thread 0", value: meta.thread0_space }]
+                    : []),
+                  ...(meta.thread1_space != null
+                    ? [{ label: "Thread 1", value: meta.thread1_space }]
+                    : []),
                 ].map((item, i) => (
                   <div key={item.label} style={{ display: "flex", alignItems: "center", gap: 24 }}>
                     {i > 0 && <div style={{ width: 1, height: 28, background: "#1a1d2e" }} />}

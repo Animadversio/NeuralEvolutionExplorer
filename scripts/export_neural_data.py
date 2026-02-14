@@ -48,6 +48,33 @@ from neural_data_lib import (
     extract_evol_psth_array,
 )
 
+
+def get_evol_meta_for_export(BFEStats, Expi):
+    """Extract evolution display meta (image size, position, thread space names) for one experiment."""
+    S = BFEStats[Expi - 1]
+    evol = S.get("evol")
+    if evol is None:
+        return {}
+    space_names = evol.get("space_names")
+    if space_names is None or len(space_names) < 2:
+        return {}
+    if isinstance(space_names[0], list):
+        space_names = [n[0] for n in space_names]
+    space_names = [str(n) for n in space_names]
+    imgsize = evol.get("imgsize")
+    imgpos = evol.get("imgpos")
+    out = {
+        "thread0_space": space_names[0],
+        "thread1_space": space_names[1],
+    }
+    if imgsize is not None:
+        arr = np.asarray(imgsize).flatten()
+        out["image_size_deg"] = [round(float(x), 1) for x in arr]
+    if imgpos is not None:
+        arr = np.asarray(imgpos).flatten()
+        out["image_pos_deg"] = [round(float(x), 1) for x in arr]
+    return out
+
 # PSTH time axis: assume 4 ms per bin (match generate_pseudo_data.py)
 PSTH_BIN_MS = 1
 
@@ -112,6 +139,7 @@ def export_experiment(
     psth_col1: list[np.ndarray],
     output_dir: Path,
     exp_id: str,
+    evol_meta: dict | None = None,
 ) -> dict:
     """
     Write one experiment's folder: meta.json, evol_traj.json, summary_stats.json, gen_XX/deepsim_psth.json, biggan_psth.json.
@@ -183,6 +211,8 @@ def export_experiment(
         "biggan_max_rate": round(float(np.max(resp_bunch[:, 1])), 1),
         "tags": [],
     }
+    if evol_meta:
+        meta.update(evol_meta)
     with open(exp_dir / "meta.json", "w") as f:
         json.dump(meta, f, indent=2)
 
@@ -259,6 +289,7 @@ def main():
             psth_col0 = psth_col0[:n_blocks]
             psth_col1 = psth_col1[:n_blocks]
 
+        evol_meta = get_evol_meta_for_export(BFEStats, Expi)
         meta = export_experiment(
             Expi,
             meta_row.to_dict(),
@@ -267,6 +298,7 @@ def main():
             psth_col1,
             output_dir,
             exp_id,
+            evol_meta=evol_meta,
         )
         all_meta.append(meta)
         print(f"  Exported {exp_id} ({meta_row['visual_area']}, {meta_row['blockN']} blocks)")
