@@ -16,7 +16,7 @@ from collections import OrderedDict
 import pandas as pd
 from tqdm import tqdm
 try:
-    from neuro_data_analysis.neural_data_utils import parse_meta, area_mapping
+    from scripts.neural_data_utils import parse_meta, area_mapping
 except ImportError:
     from neural_data_utils import parse_meta, area_mapping
 from scipy.stats import sem, ttest_ind, ttest_1samp, ttest_rel
@@ -120,6 +120,8 @@ def load_img_resp_pairs(BFEStats, Expi, ExpType, thread=0, stimdrive="S:", outpu
     # parse the full path of the images
     stimpath = S["meta"]["stimuli"]
     stimpath = stimpath.replace("N:", stimdrive)
+    if sys.platform == "darwin" or sys.platform == "linux":  # mac
+        stimpath = stimpath.replace("\\", "/")
     imglist = S['imageName']
     imgfps_all, refimgfp_dict = _map_evol_imglist_2_imgfps(imglist, stimpath, sfx="bmp")
     if S["evol"] is None:
