@@ -552,6 +552,7 @@ export default function App() {
   const [filterAnimal, setFilterAnimal] = useState("");
   const [filterArea, setFilterArea] = useState("");
   const [filterChannel, setFilterChannel] = useState("");
+  const [filterRegex, setFilterRegex] = useState("");
   const intervalRef = useRef(null);
   const lastExpIdForGen = useRef(null);
 
@@ -561,6 +562,10 @@ export default function App() {
     const m = String(unit).match(/Ch\d+/i);
     return m ? m[0] : "";
   };
+
+  // Build display string for exp (e.g. "#003-Beto-Ch42U1") — used for sidebar and regex filter
+  const getExpDisplayStr = (exp) =>
+    `#${String(exp.id.match(/Exp(\d+)/)?.[1] ?? "").padStart(3, "0")}-${exp.animal}-${exp.unit.replace("Unit ", "")}`;
 
   // Unique filter options from experiments (channel = Chxx only, not U)
   const filterOptions = (() => {
@@ -579,6 +584,16 @@ export default function App() {
     if (filterAnimal && exp.animal !== filterAnimal) return false;
     if (filterArea && exp.area !== filterArea) return false;
     if (filterChannel && getChannelFromUnit(exp.unit) !== filterChannel) return false;
+    if (filterRegex.trim()) {
+      const str = getExpDisplayStr(exp);
+      try {
+        const re = new RegExp(filterRegex.trim(), "i");
+        if (!re.test(str)) return false;
+      } catch {
+        // Invalid regex — treat as substring match
+        if (!str.toLowerCase().includes(filterRegex.trim().toLowerCase())) return false;
+      }
+    }
     return true;
   });
 
@@ -788,6 +803,18 @@ export default function App() {
                 <option key={c} value={c}>{c}</option>
               ))}
             </select>
+            <div style={{ marginBottom: 6, marginTop: 10, fontFamily: MONO, fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "#555" }}>RE filter</div>
+            <input
+              type="text"
+              value={filterRegex}
+              onChange={(e) => setFilterRegex(e.target.value)}
+              placeholder="#003-Beto-Ch42U1"
+              style={{
+                width: "100%", boxSizing: "border-box", padding: "6px 8px", fontFamily: MONO, fontSize: 11,
+                background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
+                outline: "none",
+              }}
+            />
           </div>
           <div style={{ borderTop: "1px solid #1a1d2e", marginTop: 4, paddingTop: 8 }} />
           {filteredExperiments.length === 0 ? (
@@ -813,7 +840,7 @@ export default function App() {
                   fontSize: 13, fontWeight: active ? 600 : 400,
                   color: active ? "#e0e4f0" : "#777", fontFamily: MONO,
                 }}>
-                  #{String(exp.id.match(/Exp(\d+)/)?.[1] ?? "").padStart(3, "0")}-{exp.animal}-{exp.unit.replace("Unit ", "")}
+                  {getExpDisplayStr(exp)}
                 </div>
                 <div style={{ fontFamily: MONO, fontSize: 10, color: "#444", marginTop: 2 }}>
                   {exp.area} · {exp.date}
