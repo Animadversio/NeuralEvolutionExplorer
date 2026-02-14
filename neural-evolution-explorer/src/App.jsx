@@ -12,6 +12,14 @@ const DATA_BASE = "/data"; // points to public/data/
 const IMG_EXT = "webp";
 const IMG_EXT_FALLBACK = "png";
 
+/** Format Y-axis tick to avoid long floats (e.g. 87.49700000000003) or garbage */
+function formatAxisTick(value) {
+  if (typeof value !== "number" || !Number.isFinite(value)) return "";
+  const abs = Math.abs(value);
+  if (abs >= 1e6 || (abs < 0.001 && abs > 0)) return value.toExponential(1);
+  return abs % 1 === 0 ? String(Math.round(value)) : value.toFixed(1);
+}
+
 // =============================================================================
 // DATA LOADING HOOKS
 // =============================================================================
@@ -294,6 +302,7 @@ function PSTHChart({ psth, gen, label, color, showIndividualTrials = true, allGe
           <YAxis
             stroke="#444" tick={{ fontSize: 10, fill: "#555" }}
             domain={yDomain ?? ["auto", "auto"]}
+            tickFormatter={formatAxisTick}
             label={{ value: "PSTH (Hz)", angle: -90, position: "insideLeft", offset: 10, fontSize: 10, fill: "#555" }}
           />
           {numGenTraces > 0 && Array.from({ length: numGenTraces }, (_, i) => (
@@ -328,6 +337,7 @@ function EvolTrajChartInner({ width, height, chartData, hasRef, yDomain, totalGe
         <YAxis
           domain={yDomain}
           stroke="#444" tick={{ fontSize: 10, fill: "#555" }}
+          tickFormatter={formatAxisTick}
           label={{ value: "Response fr (Hz)", angle: -90, position: "insideLeft", offset: 10, fontSize: 10, fill: "#555" }}
         />
         <Tooltip
