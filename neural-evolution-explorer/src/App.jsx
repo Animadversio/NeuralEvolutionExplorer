@@ -813,7 +813,7 @@ export default function App() {
                   fontSize: 13, fontWeight: active ? 600 : 400,
                   color: active ? "#e0e4f0" : "#777", fontFamily: MONO,
                 }}>
-                  {exp.animal}-{exp.unit.replace("Unit ", "")}
+                  #{String(exp.id.match(/Exp(\d+)/)?.[1] ?? "").padStart(3, "0")}-{exp.animal}-{exp.unit.replace("Unit ", "")}
                 </div>
                 <div style={{ fontFamily: MONO, fontSize: 10, color: "#444", marginTop: 2 }}>
                   {exp.area} · {exp.date}
