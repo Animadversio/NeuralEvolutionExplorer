@@ -427,9 +427,9 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens, showRefEvolTraj = true
   }, [chartData, hasRef]);
 
   return (
-    <div>
+    <div style={{ minWidth: 0, width: "100%" }}>
       <SectionLabel>CMAES Evolution Trajectory</SectionLabel>
-      <div style={{ position: "relative", width: "100%", height: 250 }}>
+      <div style={{ position: "relative", width: "100%", height: 250, minWidth: 0 }}>
         <ResponsiveContainer width="100%" height={230}>
           <EvolTrajChartInner
             chartData={chartData}
@@ -943,14 +943,18 @@ export default function App() {
                 {/* DeepSim */}
                 <div style={cardStyle}>
                   <div style={{ ...cardTitleStyle, color: "#60a5fa" }}>Pattern (DeepSim)</div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
-                    <MethodImage
-                      src={genData?.deepsim?.imageSrc}
-                      fallbackSrc={genData?.deepsim?.imageSrcFallback}
-                      rate={genData?.deepsim?.psth?.evoked_rate}
-                      gen={currentGen}
-                    />
-                    <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} showRefEvolTraj={showRefEvolTraj} />
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16, minWidth: 0 }}>
+                    <div style={{ minWidth: 0 }}>
+                      <MethodImage
+                        src={genData?.deepsim?.imageSrc}
+                        fallbackSrc={genData?.deepsim?.imageSrcFallback}
+                        rate={genData?.deepsim?.psth?.evoked_rate}
+                        gen={currentGen}
+                      />
+                    </div>
+                    <div style={{ minWidth: 0, width: "100%" }}>
+                      <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} showRefEvolTraj={showRefEvolTraj} />
+                    </div>
                   </div>
                   <PSTHChart
                     psth={genData?.deepsim?.psth}
@@ -966,14 +970,18 @@ export default function App() {
                 {/* BigGAN */}
                 <div style={cardStyle}>
                   <div style={{ ...cardTitleStyle, color: "#f87171" }}>Object (BigGAN)</div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
-                    <MethodImage
-                      src={genData?.biggan?.imageSrc}
-                      fallbackSrc={genData?.biggan?.imageSrcFallback}
-                      rate={genData?.biggan?.psth?.evoked_rate}
-                      gen={currentGen}
-                    />
-                    <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} showRefEvolTraj={showRefEvolTraj} />
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16, minWidth: 0 }}>
+                    <div style={{ minWidth: 0 }}>
+                      <MethodImage
+                        src={genData?.biggan?.imageSrc}
+                        fallbackSrc={genData?.biggan?.imageSrcFallback}
+                        rate={genData?.biggan?.psth?.evoked_rate}
+                        gen={currentGen}
+                      />
+                    </div>
+                    <div style={{ minWidth: 0, width: "100%" }}>
+                      <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} showRefEvolTraj={showRefEvolTraj} />
+                    </div>
                   </div>
                   <PSTHChart
                     psth={genData?.biggan?.psth}
