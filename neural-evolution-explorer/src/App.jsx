@@ -372,11 +372,12 @@ function EvolTrajChartInner({ width, height, chartData, hasRef, yDomain, totalGe
   );
 }
 
-function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
+function EvolTrajChart({ evolTraj, currentGen, totalGens, showRefEvolTraj = true }) {
   if (!evolTraj || evolTraj.length === 0) return null;
 
   // Build chart data with confidence band as [low, high] range; include ref (reference image) when present
-  const hasRef = evolTraj.some((pt) => pt.ref_deepsim != null || pt.ref_biggan != null);
+  const hasRefData = evolTraj.some((pt) => pt.ref_deepsim != null || pt.ref_biggan != null);
+  const hasRef = hasRefData && showRefEvolTraj;
   const chartData = evolTraj.slice(0, currentGen).map((pt) => {
     const out = {
       gen: pt.gen,
@@ -385,7 +386,7 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
       dsBand: [pt.deepsim_low, pt.deepsim_high],
       bgBand: [pt.biggan_low, pt.biggan_high],
     };
-    if (hasRef) {
+    if (hasRefData) {
       out.ref_deepsim = pt.ref_deepsim ?? null;
       out.ref_biggan = pt.ref_biggan ?? null;
       out.ref_dsBand = pt.ref_deepsim_low != null ? [pt.ref_deepsim_low, pt.ref_deepsim_high] : null;
@@ -396,17 +397,19 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
 
   // Explicit Y domain so ref_deepsim/ref_biggan are never clipped (Recharts auto domain may omit some series)
   const yDomain = useMemo(() => {
+    const keys = hasRef ? ["deepsim", "biggan", "ref_deepsim", "ref_biggan"] : ["deepsim", "biggan"];
     let lo = Infinity;
     let hi = -Infinity;
     for (const d of chartData) {
-      for (const key of ["deepsim", "biggan", "ref_deepsim", "ref_biggan"]) {
+      for (const key of keys) {
         const v = d[key];
         if (typeof v === "number" && Number.isFinite(v)) {
           lo = Math.min(lo, v);
           hi = Math.max(hi, v);
         }
       }
-      for (const key of ["dsBand", "bgBand", "ref_dsBand", "ref_bgBand"]) {
+      const bandKeys = hasRef ? ["dsBand", "bgBand", "ref_dsBand", "ref_bgBand"] : ["dsBand", "bgBand"];
+      for (const key of bandKeys) {
         const arr = d[key];
         if (Array.isArray(arr)) {
           for (const v of arr) {
@@ -421,7 +424,7 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
     if (lo === Infinity) return undefined;
     const pad = (hi - lo) * 0.05 || 1;
     return [Math.max(0, lo - pad), hi + pad];
-  }, [chartData]);
+  }, [chartData, hasRef]);
 
   return (
     <div>
@@ -545,6 +548,7 @@ export default function App() {
   const [showIndividualTrials, setShowIndividualTrials] = useState(false);
   const [showAllGenerationsPsth, setShowAllGenerationsPsth] = useState(true);
   const [tiePsthYLim, setTiePsthYLim] = useState(true);
+  const [showRefEvolTraj, setShowRefEvolTraj] = useState(true);
   const [filterAnimal, setFilterAnimal] = useState("");
   const [filterArea, setFilterArea] = useState("");
   const [filterChannel, setFilterChannel] = useState("");
@@ -894,6 +898,14 @@ export default function App() {
                   />
                   Tie PSTH Y limits
                 </label>
+                <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", fontFamily: MONO, fontSize: 12, color: "#888" }}>
+                  <input
+                    type="checkbox"
+                    checked={showRefEvolTraj}
+                    onChange={(e) => setShowRefEvolTraj(e.target.checked)}
+                  />
+                  Show ref trajectory
+                </label>
                 {showAllGenerationsPsth && allGenPsth.loading && (
                   <span style={{ fontFamily: MONO, fontSize: 11, color: "#60a5fa" }}>loading…</span>
                 )}
@@ -911,7 +923,7 @@ export default function App() {
                       rate={genData?.deepsim?.psth?.evoked_rate}
                       gen={currentGen}
                     />
-                    <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} />
+                    <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} showRefEvolTraj={showRefEvolTraj} />
                   </div>
                   <PSTHChart
                     psth={genData?.deepsim?.psth}
@@ -934,7 +946,7 @@ export default function App() {
                       rate={genData?.biggan?.psth?.evoked_rate}
                       gen={currentGen}
                     />
-                    <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} />
+                    <EvolTrajChart evolTraj={evolTraj} currentGen={currentGen} totalGens={maxGen} showRefEvolTraj={showRefEvolTraj} />
                   </div>
                   <PSTHChart
                     psth={genData?.biggan?.psth}
