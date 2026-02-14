@@ -612,6 +612,7 @@ export default function App() {
 
       {/* Header */}
       <header style={{
+        flexShrink: 0,
         borderBottom: "1px solid #1a1d2e", padding: "16px 24px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
         background: "#0e1019",
@@ -637,12 +638,12 @@ export default function App() {
         </div>
       </header>
 
-      <div style={{ display: "flex", minHeight: "calc(100vh - 57px)" }}>
-        {/* Sidebar */}
+      <div style={{ display: "flex", flex: 1, minHeight: 0, overflow: "hidden" }}>
+        {/* Sidebar — scrolls experiment list only */}
         <aside style={{
           width: 260, borderRight: "1px solid #1a1d2e",
           padding: "16px 0", background: "#0b0d14",
-          flexShrink: 0, overflowY: "auto",
+          flexShrink: 0, overflowY: "auto", minHeight: 0,
         }}>
           <div style={{
             fontFamily: MONO, padding: "0 16px 12px", fontSize: 10,
@@ -731,8 +732,8 @@ export default function App() {
           })}
         </aside>
 
-        {/* Main content */}
-        <main style={{ flex: 1, padding: 24, overflow: "auto" }}>
+        {/* Main content — scrolls content area only */}
+        <main style={{ flex: 1, minHeight: 0, padding: 24, overflow: "auto" }}>
           {meta && (
             <>
               {/* Experiment info bar */}
@@ -894,6 +895,10 @@ export default function App() {
 
 const rootStyle = {
   minHeight: "100vh",
+  height: "100vh",
+  overflow: "hidden",
+  display: "flex",
+  flexDirection: "column",
   background: "#0c0e16",
   color: "#d0d4e0",
   fontFamily: "'IBM Plex Sans', system-ui, sans-serif",
