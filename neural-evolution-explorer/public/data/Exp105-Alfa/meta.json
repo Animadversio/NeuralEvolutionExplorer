@@ -1,0 +1,23 @@
+{
+  "id": "Exp105-Alfa",
+  "animal": "Alfa",
+  "unit": "Ch6U1",
+  "area": "IT",
+  "date": "2020-08-10",
+  "num_generations": 24,
+  "deepsim_max_rate": 95.1,
+  "biggan_max_rate": 119.4,
+  "tags": [],
+  "thread0_space": "fc6",
+  "thread1_space": "BigGAN_class",
+  "image_size_deg": [
+    3.0,
+    3.0
+  ],
+  "image_pos_deg": [
+    -0.3,
+    -3.0,
+    -0.3,
+    -3.0
+  ]
+}

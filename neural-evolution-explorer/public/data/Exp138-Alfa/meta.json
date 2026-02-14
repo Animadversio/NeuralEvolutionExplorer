@@ -1,0 +1,23 @@
+{
+  "id": "Exp138-Alfa",
+  "animal": "Alfa",
+  "unit": "Ch18U1",
+  "area": "IT",
+  "date": "2020-09-22",
+  "num_generations": 26,
+  "deepsim_max_rate": 88.0,
+  "biggan_max_rate": 104.5,
+  "tags": [],
+  "thread0_space": "fc6",
+  "thread1_space": "BigGAN_class",
+  "image_size_deg": [
+    4.0,
+    4.0
+  ],
+  "image_pos_deg": [
+    0.0,
+    -4.0,
+    0.0,
+    -4.0
+  ]
+}

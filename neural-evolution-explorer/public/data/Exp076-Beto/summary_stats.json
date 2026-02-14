@@ -1,0 +1,8 @@
+{
+  "id": "Exp076-Beto",
+  "num_generations": 54,
+  "deepsim_final_rate": 6.8,
+  "biggan_final_rate": 10.3,
+  "deepsim_rate_increase": 1.8,
+  "biggan_rate_increase": 6.3
+}

@@ -1,0 +1,23 @@
+{
+  "id": "Exp130-Alfa",
+  "animal": "Alfa",
+  "unit": "Ch30U1",
+  "area": "IT",
+  "date": "2020-09-11",
+  "num_generations": 24,
+  "deepsim_max_rate": 57.6,
+  "biggan_max_rate": 91.5,
+  "tags": [],
+  "thread0_space": "fc6",
+  "thread1_space": "BigGAN_class",
+  "image_size_deg": [
+    3.0,
+    3.0
+  ],
+  "image_pos_deg": [
+    -2.0,
+    -2.0,
+    -2.0,
+    -2.0
+  ]
+}

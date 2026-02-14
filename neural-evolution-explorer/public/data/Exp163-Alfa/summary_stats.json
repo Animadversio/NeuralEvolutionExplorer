@@ -1,0 +1,8 @@
+{
+  "id": "Exp163-Alfa",
+  "num_generations": 20,
+  "deepsim_final_rate": 16.5,
+  "biggan_final_rate": 7.8,
+  "deepsim_rate_increase": 12.3,
+  "biggan_rate_increase": 3.7
+}
