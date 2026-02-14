@@ -315,14 +315,24 @@ function PSTHChart({ psth, gen, label, color, showIndividualTrials = true, allGe
 function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
   if (!evolTraj || evolTraj.length === 0) return null;
 
-  // Build chart data with confidence band as [low, high] range
-  const chartData = evolTraj.slice(0, currentGen).map((pt) => ({
-    gen: pt.gen,
-    deepsim: pt.deepsim,
-    biggan: pt.biggan,
-    dsBand: [pt.deepsim_low, pt.deepsim_high],
-    bgBand: [pt.biggan_low, pt.biggan_high],
-  }));
+  // Build chart data with confidence band as [low, high] range; include ref (reference image) when present
+  const hasRef = evolTraj.some((pt) => pt.ref_deepsim != null || pt.ref_biggan != null);
+  const chartData = evolTraj.slice(0, currentGen).map((pt) => {
+    const out = {
+      gen: pt.gen,
+      deepsim: pt.deepsim,
+      biggan: pt.biggan,
+      dsBand: [pt.deepsim_low, pt.deepsim_high],
+      bgBand: [pt.biggan_low, pt.biggan_high],
+    };
+    if (hasRef) {
+      out.ref_deepsim = pt.ref_deepsim ?? null;
+      out.ref_biggan = pt.ref_biggan ?? null;
+      out.ref_dsBand = pt.ref_deepsim_low != null ? [pt.ref_deepsim_low, pt.ref_deepsim_high] : null;
+      out.ref_bgBand = pt.ref_biggan_low != null ? [pt.ref_biggan_low, pt.ref_biggan_high] : null;
+    }
+    return out;
+  });
 
   return (
     <div>
@@ -346,18 +356,40 @@ function EvolTrajChart({ evolTraj, currentGen, totalGens }) {
             }}
             labelStyle={{ color: "#888" }}
             labelFormatter={(v) => `Gen ${v}`}
+            formatter={(value, name) => {
+              if (name === "deepsim") return [value, "DeepSim (Hz)"];
+              if (name === "biggan") return [value, "BigGAN (Hz)"];
+              if (name === "ref_deepsim") return [value, "Ref DeepSim (Hz)"];
+              if (name === "ref_biggan") return [value, "Ref BigGAN (Hz)"];
+              return [value, name];
+            }}
           />
           {/* Confidence bands */}
           <Area dataKey="dsBand" fill="rgba(96,165,250,0.12)" stroke="none" isAnimationActive={false} />
           <Area dataKey="bgBand" fill="rgba(248,113,113,0.12)" stroke="none" isAnimationActive={false} />
+          {/* Reference image bands (when present) */}
+          {hasRef && (
+            <>
+              <Area dataKey="ref_dsBand" fill="rgba(96,165,250,0.06)" stroke="none" isAnimationActive={false} />
+              <Area dataKey="ref_bgBand" fill="rgba(248,113,113,0.06)" stroke="none" isAnimationActive={false} />
+            </>
+          )}
           {/* Mean lines */}
           <Line dataKey="deepsim" stroke="#60a5fa" strokeWidth={2} dot={false} isAnimationActive={false} />
           <Line dataKey="biggan" stroke="#f87171" strokeWidth={2} dot={false} isAnimationActive={false} />
+          {/* Reference image lines (dashed) */}
+          {hasRef && (
+            <>
+              <Line dataKey="ref_deepsim" stroke="#60a5fa" strokeWidth={1.5} strokeDasharray="4 4" dot={false} isAnimationActive={false} />
+              <Line dataKey="ref_biggan" stroke="#f87171" strokeWidth={1.5} strokeDasharray="4 4" dot={false} isAnimationActive={false} />
+            </>
+          )}
         </ComposedChart>
       </ResponsiveContainer>
-      <div style={{ display: "flex", gap: 16, justifyContent: "center", marginTop: -4 }}>
+      <div style={{ display: "flex", gap: 16, justifyContent: "center", marginTop: -4, flexWrap: "wrap" }}>
         <span style={{ fontSize: 11, color: "#60a5fa", fontFamily: MONO }}>● DeepSim</span>
         <span style={{ fontSize: 11, color: "#f87171", fontFamily: MONO }}>● BigGAN</span>
+        {hasRef && <span style={{ fontSize: 11, color: "#888", fontFamily: MONO }}>— — Reference images</span>}
       </div>
     </div>
   );

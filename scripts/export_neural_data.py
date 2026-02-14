@@ -9,7 +9,7 @@ Output layout (same as generate_pseudo_data.py):
     experiments.json          # list of experiment meta
     {exp_id}/
       meta.json
-      evol_traj.json
+      evol_traj.json          # per-gen deepsim/biggan (+ ref_deepsim/ref_biggan when ref data present)
       summary_stats.json
       gen_{NN}/
         deepsim_psth.json     # thread 0 = FC6 / DeepSim
@@ -49,6 +49,7 @@ from neural_data_lib import (
     load_neural_data,
     extract_all_evol_trajectory_dyna,
     extract_evol_psth_array,
+    extract_natref_activation_array,
 )
 
 
@@ -98,12 +99,18 @@ def exp_id_from_expi(Expi: int, animal: str) -> str:
     return f"Exp{Expi:03d}-{animal}"
 
 
-def build_evol_traj(resp_bunch: np.ndarray) -> list[dict]:
-    """resp_bunch: (n_blocks, 6) = resp_m_0, resp_m_1, resp_sem_0, resp_sem_1, bsl_m_0, bsl_m_1."""
+def build_evol_traj(
+    resp_bunch: np.ndarray,
+    ref_resp_arr0: list[np.ndarray] | None = None,
+    ref_resp_arr1: list[np.ndarray] | None = None,
+) -> list[dict]:
+    """resp_bunch: (n_blocks, 6) = resp_m_0, resp_m_1, resp_sem_0, resp_sem_1, bsl_m_0, bsl_m_1.
+    ref_resp_arr0/1: per-block arrays of ref image response (one value per image); mean±sem added as ref_deepsim, ref_biggan when present."""
     out = []
-    for g in range(resp_bunch.shape[0]):
+    n_blocks = resp_bunch.shape[0]
+    for g in range(n_blocks):
         m0, m1, s0, s1 = resp_bunch[g, 0], resp_bunch[g, 1], resp_bunch[g, 2], resp_bunch[g, 3]
-        out.append({
+        entry = {
             "gen": g + 1,
             "deepsim": round(float(m0), 2),
             "deepsim_low": round(float(m0 - s0), 2),
@@ -111,7 +118,24 @@ def build_evol_traj(resp_bunch: np.ndarray) -> list[dict]:
             "biggan": round(float(m1), 2),
             "biggan_low": round(float(m1 - s1), 2),
             "biggan_high": round(float(m1 + s1), 2),
-        })
+        }
+        if ref_resp_arr0 is not None and g < len(ref_resp_arr0) and ref_resp_arr1 is not None and g < len(ref_resp_arr1):
+            r0 = np.asarray(ref_resp_arr0[g]).flatten()
+            r1 = np.asarray(ref_resp_arr1[g]).flatten()
+            n0, n1 = r0.size, r1.size
+            if n0 > 0:
+                mean0 = float(np.mean(r0))
+                sem0 = float(np.std(r0, ddof=1) / np.sqrt(n0)) if n0 > 1 else 0.0
+                entry["ref_deepsim"] = round(mean0, 2)
+                entry["ref_deepsim_low"] = round(mean0 - sem0, 2)
+                entry["ref_deepsim_high"] = round(mean0 + sem0, 2)
+            if n1 > 0:
+                mean1 = float(np.mean(r1))
+                sem1 = float(np.std(r1, ddof=1) / np.sqrt(n1)) if n1 > 1 else 0.0
+                entry["ref_biggan"] = round(mean1, 2)
+                entry["ref_biggan_low"] = round(mean1 - sem1, 2)
+                entry["ref_biggan_high"] = round(mean1 + sem1, 2)
+        out.append(entry)
     return out
 
 
@@ -144,10 +168,13 @@ def export_experiment(
     exp_id: str,
     evol_meta: dict | None = None,
     include_trial_rates: bool = True,
+    ref_resp_arr0: list[np.ndarray] | None = None,
+    ref_resp_arr1: list[np.ndarray] | None = None,
 ) -> dict:
     """
     Write one experiment's folder: meta.json, evol_traj.json, summary_stats.json, gen_XX/deepsim_psth.json, biggan_psth.json.
     psth_col0 / psth_col1: list of (time x trials) arrays per block.
+    ref_resp_arr0/1: optional per-block ref image response arrays (thread 0 = DeepSim, thread 1 = BigGAN).
     Returns meta dict for experiments.json.
     """
     exp_dir = output_dir / exp_id
@@ -162,8 +189,8 @@ def export_experiment(
     unit_str = f"Ch{prefchan}U{prefunit}"
     n_gen = resp_bunch.shape[0]
 
-    # Evolution trajectory
-    evol_traj = build_evol_traj(resp_bunch)
+    # Evolution trajectory (with optional ref response per gen)
+    evol_traj = build_evol_traj(resp_bunch, ref_resp_arr0=ref_resp_arr0, ref_resp_arr1=ref_resp_arr1)
     with open(exp_dir / "evol_traj.json", "w") as f:
         json.dump(evol_traj, f, indent=2)
 
@@ -300,6 +327,17 @@ def main():
             psth_col1 = psth_col1[:n_blocks]
 
         evol_meta = get_evol_meta_for_export(BFEStats, Expi)
+        ref_resp_arr0, ref_resp_arr1 = None, None
+        S = BFEStats[Expi - 1]
+        if S.get("ref") is not None and isinstance(S.get("ref"), dict) and "psth" in S.get("ref", {}):
+            try:
+                refresp_arr0, _, _, _, _, _ = extract_natref_activation_array(S, 0)
+                refresp_arr1, _, _, _, _, _ = extract_natref_activation_array(S, 1)
+                n_blocks = resp_bunch.shape[0]
+                ref_resp_arr0 = refresp_arr0[:n_blocks]
+                ref_resp_arr1 = refresp_arr1[:n_blocks]
+            except (KeyError, TypeError, IndexError):
+                ref_resp_arr0, ref_resp_arr1 = None, None
         meta = export_experiment(
             Expi,
             meta_row.to_dict(),
@@ -310,6 +348,8 @@ def main():
             exp_id,
             evol_meta=evol_meta,
             include_trial_rates=not args.no_trial_rates,
+            ref_resp_arr0=ref_resp_arr0,
+            ref_resp_arr1=ref_resp_arr1,
         )
         all_meta.append(meta)
         print(f"  Exported {exp_id} ({meta_row['visual_area']}, {meta_row['blockN']} blocks)")
