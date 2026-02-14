@@ -40,19 +40,24 @@ function useExperimentData(expId) {
 
   useEffect(() => {
     if (!expId) return;
+    setMeta(null);
+    setEvolTraj([]);
     setLoading(true);
+    let cancelled = false;
 
     Promise.all([
       fetch(`${DATA_BASE}/${expId}/meta.json`).then((r) => r.json()),
       fetch(`${DATA_BASE}/${expId}/evol_traj.json`).then((r) => r.json()),
     ])
       .then(([m, traj]) => {
+        if (cancelled) return;
         setMeta(m);
         setEvolTraj(traj);
-        cache.current = {};
       })
-      .catch((e) => console.error("Failed to load experiment:", e))
-      .finally(() => setLoading(false));
+      .catch((e) => { if (!cancelled) console.error("Failed to load experiment:", e); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+
+    return () => { cancelled = true; };
   }, [expId]);
 
   return { meta, evolTraj, loading, cache };
@@ -68,10 +73,13 @@ function useGenerationData(expId, genNum, cache) {
     const cacheKey = `${expId}-${genNum}`;
     if (cache.current[cacheKey]) {
       setGenData(cache.current[cacheKey]);
+      setLoading(false);
       return;
     }
 
+    setGenData(null);
     setLoading(true);
+    let cancelled = false;
     const genDir = `${DATA_BASE}/${expId}/gen_${String(genNum).padStart(2, "0")}`;
 
     Promise.all([
@@ -79,6 +87,7 @@ function useGenerationData(expId, genNum, cache) {
       fetch(`${genDir}/biggan_psth.json`).then((r) => r.json()),
     ])
       .then(([dsPsth, bgPsth]) => {
+        if (cancelled) return;
         const data = {
           deepsim: { psth: dsPsth, imageSrc: `${genDir}/deepsim_img.png` },
           biggan: { psth: bgPsth, imageSrc: `${genDir}/biggan_img.png` },
@@ -86,8 +95,10 @@ function useGenerationData(expId, genNum, cache) {
         cache.current[cacheKey] = data;
         setGenData(data);
       })
-      .catch((e) => console.error("Failed to load generation:", e))
-      .finally(() => setLoading(false));
+      .catch((e) => { if (!cancelled) console.error("Failed to load generation:", e); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+
+    return () => { cancelled = true; };
   }, [expId, genNum, cache]);
 
   return { genData, loading };
@@ -127,6 +138,7 @@ function useAllGenerationsPsth(expId, maxGen, enabled) {
       return;
     }
     setAllGenPsth((prev) => ({ ...prev, loading: true }));
+    let cancelled = false;
     const promises = [];
     for (let g = 1; g <= maxGen; g++) {
       const genDir = `${DATA_BASE}/${expId}/gen_${String(g).padStart(2, "0")}`;
@@ -138,11 +150,13 @@ function useAllGenerationsPsth(expId, maxGen, enabled) {
       );
     }
     Promise.all(promises).then((results) => {
+      if (cancelled) return;
       const deepsim = results.map((r) => r.deepsim);
       const biggan = results.map((r) => r.biggan);
       const time_ms = results[0]?.time_ms ?? [];
       setAllGenPsth({ deepsim, biggan, time_ms, loading: false });
-    }).catch(() => setAllGenPsth((prev) => ({ ...prev, loading: false })));
+    }).catch(() => { if (!cancelled) setAllGenPsth((prev) => ({ ...prev, loading: false })); });
+    return () => { cancelled = true; };
   }, [expId, maxGen, enabled]);
   return allGenPsth;
 }
