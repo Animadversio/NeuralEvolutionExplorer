@@ -407,12 +407,13 @@ export default function App() {
   const [currentGen, setCurrentGen] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playSpeed, setPlaySpeed] = useState(500);
-  const [showIndividualTrials, setShowIndividualTrials] = useState(true);
-  const [showAllGenerationsPsth, setShowAllGenerationsPsth] = useState(false);
+  const [showIndividualTrials, setShowIndividualTrials] = useState(false);
+  const [showAllGenerationsPsth, setShowAllGenerationsPsth] = useState(true);
   const [filterAnimal, setFilterAnimal] = useState("");
   const [filterArea, setFilterArea] = useState("");
   const [filterChannel, setFilterChannel] = useState("");
   const intervalRef = useRef(null);
+  const lastExpIdForGen = useRef(null);
 
   // Extract Chxx from unit string (e.g. "Ch12U3" -> "Ch12")
   const getChannelFromUnit = (unit) => {
@@ -460,6 +461,14 @@ export default function App() {
   const { genData, loading: loadingGen } = useGenerationData(selectedExp, currentGen, cache);
   const allGenPsth = useAllGenerationsPsth(selectedExp, maxGen, showAllGenerationsPsth);
 
+  // When switching to an experiment, show last generation by default
+  useEffect(() => {
+    if (selectedExp && meta && meta.id === selectedExp && lastExpIdForGen.current !== selectedExp) {
+      lastExpIdForGen.current = selectedExp;
+      setCurrentGen(meta.num_generations ?? 1);
+    }
+  }, [selectedExp, meta]);
+
   // Preload upcoming generations for smooth playback
   usePreloader(selectedExp, currentGen, maxGen, cache);
 
@@ -481,8 +490,8 @@ export default function App() {
 
   const handleExpChange = (id) => {
     setSelectedExp(id);
-    setCurrentGen(1);
     setIsPlaying(false);
+    // currentGen will be set to last generation when meta loads (see effect above)
   };
 
   const handleSetGen = (g) => {
