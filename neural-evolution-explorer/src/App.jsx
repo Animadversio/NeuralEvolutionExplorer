@@ -409,14 +409,51 @@ export default function App() {
   const [playSpeed, setPlaySpeed] = useState(500);
   const [showIndividualTrials, setShowIndividualTrials] = useState(true);
   const [showAllGenerationsPsth, setShowAllGenerationsPsth] = useState(false);
+  const [filterAnimal, setFilterAnimal] = useState("");
+  const [filterArea, setFilterArea] = useState("");
+  const [filterChannel, setFilterChannel] = useState("");
   const intervalRef = useRef(null);
 
-  // Auto-select first experiment when list loads
+  // Extract Chxx from unit string (e.g. "Ch12U3" -> "Ch12")
+  const getChannelFromUnit = (unit) => {
+    if (!unit) return "";
+    const m = String(unit).match(/Ch\d+/i);
+    return m ? m[0] : "";
+  };
+
+  // Unique filter options from experiments (channel = Chxx only, not U)
+  const filterOptions = (() => {
+    const animals = [...new Set(experiments.map((e) => e.animal).filter(Boolean))].sort();
+    const areas = [...new Set(experiments.map((e) => e.area).filter(Boolean))].sort();
+    const channelSet = new Set(experiments.map((e) => getChannelFromUnit(e.unit)).filter(Boolean));
+    const channels = [...channelSet].sort((a, b) => {
+      const na = parseInt(a.replace(/\D/g, ""), 10) || 0;
+      const nb = parseInt(b.replace(/\D/g, ""), 10) || 0;
+      return na - nb || a.localeCompare(b);
+    });
+    return { animals, areas, channels };
+  })();
+
+  const filteredExperiments = experiments.filter((exp) => {
+    if (filterAnimal && exp.animal !== filterAnimal) return false;
+    if (filterArea && exp.area !== filterArea) return false;
+    if (filterChannel && getChannelFromUnit(exp.unit) !== filterChannel) return false;
+    return true;
+  });
+
+  // Auto-select first experiment when list loads; keep selection valid when filters change
   useEffect(() => {
     if (experiments.length > 0 && !selectedExp) {
       setSelectedExp(experiments[0].id);
     }
   }, [experiments, selectedExp]);
+
+  useEffect(() => {
+    const stillVisible = filteredExperiments.some((e) => e.id === selectedExp);
+    if (filteredExperiments.length > 0 && !stillVisible) {
+      setSelectedExp(filteredExperiments[0].id);
+    }
+  }, [filteredExperiments, selectedExp]);
 
   const { meta, evolTraj, loading: loadingExp, cache } = useExperimentData(selectedExp);
   const maxGen = meta?.num_generations || 20;
@@ -523,14 +560,16 @@ export default function App() {
           </span>
         </div>
         <div style={{ fontFamily: MONO, fontSize: 11, color: "#444" }}>
-          {experiments.length} experiment{experiments.length !== 1 ? "s" : ""}
+          {filteredExperiments.length === experiments.length
+            ? `${experiments.length} experiment${experiments.length !== 1 ? "s" : ""}`
+            : `${filteredExperiments.length} / ${experiments.length} experiments`}
         </div>
       </header>
 
       <div style={{ display: "flex", minHeight: "calc(100vh - 57px)" }}>
         {/* Sidebar */}
         <aside style={{
-          width: 240, borderRight: "1px solid #1a1d2e",
+          width: 260, borderRight: "1px solid #1a1d2e",
           padding: "16px 0", background: "#0b0d14",
           flexShrink: 0, overflowY: "auto",
         }}>
@@ -540,7 +579,60 @@ export default function App() {
           }}>
             Experiments
           </div>
-          {experiments.map((exp) => {
+          <div style={{ padding: "0 12px 12px" }}>
+            <div style={{ marginBottom: 6, fontFamily: MONO, fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "#555" }}>Animal</div>
+            <select
+              value={filterAnimal}
+              onChange={(e) => setFilterAnimal(e.target.value)}
+              style={{
+                width: "100%", padding: "6px 8px", fontFamily: MONO, fontSize: 11,
+                background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
+                cursor: "pointer",
+              }}
+            >
+              <option value="">All</option>
+              {filterOptions.animals.map((a) => (
+                <option key={a} value={a}>{a}</option>
+              ))}
+            </select>
+            <div style={{ marginBottom: 6, marginTop: 10, fontFamily: MONO, fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "#555" }}>Area</div>
+            <select
+              value={filterArea}
+              onChange={(e) => setFilterArea(e.target.value)}
+              style={{
+                width: "100%", padding: "6px 8px", fontFamily: MONO, fontSize: 11,
+                background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
+                cursor: "pointer",
+              }}
+            >
+              <option value="">All</option>
+              {filterOptions.areas.map((a) => (
+                <option key={a} value={a}>{a}</option>
+              ))}
+            </select>
+            <div style={{ marginBottom: 6, marginTop: 10, fontFamily: MONO, fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "#555" }}>Channel</div>
+            <select
+              value={filterChannel}
+              onChange={(e) => setFilterChannel(e.target.value)}
+              style={{
+                width: "100%", padding: "6px 8px", fontFamily: MONO, fontSize: 11,
+                background: "#0e1019", border: "1px solid #1a1d2e", borderRadius: 4, color: "#c0c4d0",
+                cursor: "pointer",
+              }}
+            >
+              <option value="">All</option>
+              {filterOptions.channels.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+          </div>
+          <div style={{ borderTop: "1px solid #1a1d2e", marginTop: 4, paddingTop: 8 }} />
+          {filteredExperiments.length === 0 ? (
+            <div style={{ padding: "12px 16px", fontFamily: MONO, fontSize: 11, color: "#555" }}>
+              No experiments match filters
+            </div>
+          ) : null}
+          {filteredExperiments.map((exp) => {
             const active = selectedExp === exp.id;
             return (
               <button
